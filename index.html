@@ -21,7 +21,8 @@
     <link href="assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="assets/plugins/animate.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css">
     <!-- END PLUGIN CSS -->
@@ -44,8 +45,6 @@
 <!-- Add your site or application content here -->
 <div class="page-container row-fluid">
 
-    <p>Hello world!</p>
-
     <!-- FORM -->
     <form id="commentForm">
         <!-- Main wrapper -->
@@ -66,95 +65,217 @@
                 <div class="clearfix"></div>
             </div>
 
+            <!-- Progress bar -->
             <div id="bar" class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                     style="width: 0%;"></div>
             </div>
 
             <div class="tab-content">
-                <!-- Step -->
+                <!-- Step 1 -->
                 <div class="tab-pane" id="tab1">
 
 
+                    <!-- Basic information inputs -->
                     <div class="inputs">
                         <!-- Numero Client -->
                         <div class="input-group">
-                        <span class="input-group-addon primary">
-                            <span class="arrow"></span>
-                            <i class="far fa-address-card"></i>
-                      </span>
+                            <span class="input-group-addon primary">
+                                <span class="arrow"></span>
+                                <i class="far fa-address-card"></i>
+                            </span>
                             <input type="text" placeholder="Numéro de client" class="form-control">
                         </div>
 
 
-
                         <!-- Nom -->
                         <div class="input-group">
-                        <span class="input-group-addon primary">
-                            <span class="arrow"></span>
-                            <i class="far fa-address-card"></i>
-                      </span>
+                            <span class="input-group-addon primary">
+                                <span class="arrow"></span>
+                                <i class="far fa-address-card"></i>
+                            </span>
                             <input type="text" placeholder="Nom" class="form-control">
                         </div>
 
 
-
                         <!-- Adresse -->
                         <div class="input-group">
-                        <span class="input-group-addon primary">
-                            <span class="arrow"></span>
-                            <i class="far fa-address-card"></i>
-                      </span>
+                            <span class="input-group-addon primary">
+                                <span class="arrow"></span>
+                                <i class="far fa-address-card"></i>
+                            </span>
                             <input type="text" placeholder="Adresse" class="form-control">
                         </div>
 
 
-
-
                         <!-- Tel -->
                         <div class="input-group">
-                        <span class="input-group-addon primary">
-                            <span class="arrow"></span>
-                            <i class="fas fa-phone"></i>
-                      </span>
+                            <span class="input-group-addon primary">
+                                <span class="arrow"></span>
+                                <i class="fas fa-phone"></i>
+                            </span>
                             <input type="tel" placeholder="Tel" class="form-control">
                         </div>
 
 
-
                         <!-- Interlocuteur -->
                         <div class="input-group">
-                        <span class="input-group-addon primary">
-                            <span class="arrow"></span>
-                            <i class="fas fa-phone"></i>
-                      </span>
+                            <span class="input-group-addon primary">
+                                <span class="arrow"></span>
+                                <i class="fas fa-phone"></i>
+                            </span>
                             <input type="text" placeholder="Interlocuteur" class="form-control">
                         </div>
-                    </div>
 
+                    </div>
 
 
                     <!-- Select window type -->
                     <div class="radio radio-success">
-                        <input type="radio" checked="checked" value="FORMULAIRE DORMANT RENOVATION" name="optionyes" id="renovation">
+                        <input type="radio" checked="checked" value="renovation" name="window-type" id="renovation">
                         <label for="renovation">Renovation</label>
 
-                        <input type="radio" value="no" name="optionyes" id="iso">
+                        <input type="radio" value="iso" name="window-type" id="iso">
                         <label for="iso">ISO 100 / 120 / 140</label>
 
-                        <input type="radio" value="no" name="optionyes" id="traditionnel">
+                        <input type="radio" value="traditionnel" name="window-type" id="traditionnel">
                         <label for="traditionnel">Traditionnel</label>
 
-                        <input type="radio" value="no" name="optionyes" id="enteree">
+                        <input type="radio" value="enteree" name="window-type" id="enteree">
                         <label for="enteree">Porte d'enteree 105 & 120</label>
                     </div>
 
 
-
-
                 </div>
-                <!-- Step -->
+
+
+                <!-- Step 2 -->
                 <div class="tab-pane" id="tab2">
-                    Account information step
+
+                    <div class="radio-buttons">
+                        <!-- Grid 1 -->
+                        <div class="grid simple">
+                            <div class="grid-title">
+                                <h4>Systeme</h4>
+                                <!--<div class="tools">-->
+                                <!--<a href="javascript:;" class="collapse"></a>-->
+                                <!--<a href="#grid-config" data-toggle="modal" class="config"></a>-->
+                                <!--<a href="javascript:;" class="reload"></a>-->
+                                <!--<a href="javascript:;" class="remove"></a>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="grid-body">
+                                <div class="radio radio-success">
+                                    <input type="radio" checked="checked" value="koncept" name="system" id="koncept">
+                                    <label for="koncept">Koncept</label>
+
+                                    <input type="radio" value="koncept-mini" name="system" id="koncept-mini">
+                                    <label for="koncept-mini">Koncept Mini</label>
+
+                                    <input type="radio" value="pixel" name="system" id="pixel">
+                                    <label for="pixel">Pixel</label>
+
+                                    <input type="radio" value="charme-mini" name="system" id="charme-mini">
+                                    <label for="charme-mini">Charme Mini</label>
+
+                                    <input type="radio" value="winergetic-premium" name="system" id="winergetic-premium">
+                                    <label for="winergetic-premium">Winergetic Premium</label>
+
+                                    <input type="radio" value="winergetic-standard" name="system" id="winergetic-standard">
+                                    <label for="winergetic-standard">Winergetic Standard</label>
+
+                                    <input type="radio" value="pf" name="system" id="pf">
+                                    <label for="pf">PF 94 / PF 105</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Grid 2 -->
+                        <div class="grid simple">
+                            <div class="grid-title">
+                                <h4>Couleur</h4>
+                                <!--<div class="tools">-->
+                                <!--<a href="javascript:;" class="collapse"></a>-->
+                                <!--<a href="#grid-config" data-toggle="modal" class="config"></a>-->
+                                <!--<a href="javascript:;" class="reload"></a>-->
+                                <!--<a href="javascript:;" class="remove"></a>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="grid-body">
+                                <div class="radio radio-success">
+                                    <input type="radio" checked="checked" value="blanc" name="color" id="blanc">
+                                    <label for="blanc">Blanc</label>
+
+                                    <input type="radio" value="blanc-decor" name="color" id="blanc-decor">
+                                    <label for="blanc-decor">Blanc int. / Decor ext.</label>
+
+                                    <input type="radio" value="decor2cotes" name="color" id="decor2cotes">
+                                    <label for="decor2cotes">Decor 2 cotes</label>
+
+                                    <input type="radio" value="colorfull" name="color" id="colorfull">
+                                    <label for="colorfull">Colorfull</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Grid 3 -->
+                        <div class="grid simple">
+                            <div class="grid-title">
+                                <h4>Dormant</h4>
+                                <!--<div class="tools">-->
+                                <!--<a href="javascript:;" class="collapse"></a>-->
+                                <!--<a href="#grid-config" data-toggle="modal" class="config"></a>-->
+                                <!--<a href="javascript:;" class="reload"></a>-->
+                                <!--<a href="javascript:;" class="remove"></a>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="grid-body">
+                                <!-- todo change name="dormant" to english -->
+                                <div class="radio radio-success">
+                                    <input type="radio" checked="checked" value="aile40" name="dormant" id="aile40">
+                                    <label for="aile40">aile de 40/45mm (111.057.0)</label>
+
+                                    <input type="radio" value="aile65" name="dormant" id="aile65">
+                                    <label for="aile65">aile de 65mm (111.044)</label>
+
+                                    <input type="radio" value="aile42" name="dormant" id="aile42">
+                                    <label for="aile42">aile de 42mm (111.043 persienne)</label>
+
+                                    <input type="radio" value="aile35" name="dormant" id="aile35">
+                                    <label for="aile35">aile de 35mm (101.300 Winergetic)</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grid 4 -->
+                        <div class="grid simple">
+                            <div class="grid-title">
+                                <h4>Parclose</h4>
+                                <!--<div class="tools">-->
+                                <!--<a href="javascript:;" class="collapse"></a>-->
+                                <!--<a href="#grid-config" data-toggle="modal" class="config"></a>-->
+                                <!--<a href="javascript:;" class="reload"></a>-->
+                                <!--<a href="javascript:;" class="remove"></a>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="grid-body">
+                                <!-- todo change name="dormant" to english -->
+                                <div class="radio radio-success">
+                                    <input type="radio" checked="checked" value="droite" name="parclose" id="droite">
+                                    <label for="droite">Droite</label>
+
+                                    <input type="radio" value="galbee" name="parclose" id="galbee">
+                                    <label for="galbee">Galbée</label>
+
+                                    <input type="radio" value="mouluree" name="parclose" id="mouluree">
+                                    <label for="mouluree">Moulurée</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Step -->
