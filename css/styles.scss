@@ -8,6 +8,10 @@
 
     .input-group {
       margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -22,14 +26,33 @@
   .grid {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 
     .grids-body-wrapper {
       display: flex;
     }
 
+    &.simple {
+      .grid-title {
+        align-items: center;
+        display: flex;
+        height: 36px;
+        padding: 0 0 0 15px;
+
+        h4 {
+          margin-bottom: 0;
+          width: 100%;
+        }
+      }
+    }
+
     .grid-body {
       flex: 1 0;
       padding: 15px;
+
+      div:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -44,12 +67,6 @@
 
   &.template-33 .grid {
     width: 33%;
-  }
-}
-
-.grid-title {
-  h4 {
-    width: 100%;
   }
 }
 
