@@ -1,0 +1,48 @@
+.form-wizard-steps {
+  margin-bottom: 40px; }
+
+.tab-pane .inputs {
+  margin-bottom: 15px; }
+  .tab-pane .inputs .input-group {
+    margin-bottom: 5px; }
+
+.tab-content .group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .tab-content .group .grid {
+    display: flex;
+    flex-direction: column; }
+    .tab-content .group .grid .grids-body-wrapper {
+      display: flex; }
+    .tab-content .group .grid .grid-body {
+      flex: 1 0;
+      padding: 15px; }
+  .tab-content .group.template-100 .grid {
+    width: 100%; }
+  .tab-content .group.template-50 .grid {
+    width: 49%; }
+  .tab-content .group.template-33 .grid {
+    width: 33%; }
+
+.grid-title h4 {
+  width: 100%; }
+
+.radio label::before, .radio label::after {
+  left: 0;
+  top: 1px; }
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center; }
+
+.pager {
+  bottom: 0;
+  padding: 0 19px;
+  position: fixed;
+  width: 100%;
+  z-index: 11; }
+
+/*# sourceMappingURL=styles.css.map */
