@@ -14,33 +14,35 @@
 
 // panels
 
-.tab-content {
-  .group {
+.tab-content .group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
 
-    .grid {
+    .grids-body-wrapper {
       display: flex;
-      flex-direction: column;
-
-      .grid-body {
-        flex: 1 0 auto;
-        padding: 15px;
-      }
     }
 
-    &.template-50 {
-      .grid {
-        width: 49%;
-      }
+    .grid-body {
+      flex: 1 0 auto;
+      padding: 15px;
     }
+  }
 
-    &.template-33 {
-      .grid {
-        width: 33%;
-      }
-    }
+  &.template-100 .grid {
+    width: 100%;
+  }
+
+  &.template-50 .grid {
+    width: 49%;
+  }
+
+  &.template-33 .grid {
+    width: 33%;
   }
 }
 
