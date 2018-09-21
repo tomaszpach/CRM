@@ -27,8 +27,15 @@
 
       .grid-body {
         flex: 1 0 auto;
+        padding: 15px;
       }
     }
+  }
+}
+
+.grid-title {
+  h4 {
+    width: 100%;
   }
 }
 
