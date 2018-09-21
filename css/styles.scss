@@ -40,6 +40,8 @@
 }
 
 .radio label {
+  display: block;
+
   &::before,
   &::after {
     left: 0;
@@ -52,4 +54,12 @@
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+.pager {
+  bottom: 0;
+  padding: 0 19px;
+  position: fixed;
+  width: 100%;
+  z-index: 11;
 }
