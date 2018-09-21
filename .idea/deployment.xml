@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" persistUploadOnCheckin="false">
+  <component name="PublishConfigData" uploadOnCheckin="aec7ab3a-c159-4ab5-998a-ebd347c3b2be">
     <serverData>
       <paths name="beta8">
         <serverdata>
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="beta8" />
   </component>
 </project>
