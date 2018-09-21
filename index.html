@@ -71,96 +71,103 @@
                      style="width: 0%;"></div>
             </div>
 
+            <!-- Navigation buttons -->
+            <ul class="pager wizard">
+                <li class="previous"><a href="javascript:;">Previous</a></li>
+                <li class="next"><a href="javascript:;">Next</a></li>
+                <li class="finish" style="display: none;"><a href="javascript:;">Finish</a></li>
+            </ul>
+
             <div class="tab-content">
                 <!-- Step 1 -->
                 <div class="tab-pane" id="tab1">
-
-
-                    <!-- Basic information inputs -->
-                    <div class="inputs">
-                        <!-- Numero Client -->
-                        <div class="input-group">
+                    <div class="group template-50">
+                        <!-- Basic information inputs -->
+                        <div class="grid simple">
+                            <div class="grid-title">
+                                <h4>Basic details</h4>
+                            </div>
+                            <div class="grid-body">
+                                <div class="inputs">
+                                    <!-- Numero Client -->
+                                    <div class="input-group">
                             <span class="input-group-addon primary">
                                 <span class="arrow"></span>
                                 <i class="far fa-address-card"></i>
                             </span>
-                            <input type="text" placeholder="Numéro de client" class="form-control">
-                        </div>
+                                        <input type="text" placeholder="Numéro de client" class="form-control">
+                                    </div>
 
-
-                        <!-- Nom -->
-                        <div class="input-group">
+                                    <!-- Nom -->
+                                    <div class="input-group">
                             <span class="input-group-addon primary">
                                 <span class="arrow"></span>
                                 <i class="far fa-address-card"></i>
                             </span>
-                            <input type="text" placeholder="Nom" class="form-control">
-                        </div>
+                                        <input type="text" placeholder="Nom" class="form-control">
+                                    </div>
 
-
-                        <!-- Adresse -->
-                        <div class="input-group">
+                                    <!-- Adresse -->
+                                    <div class="input-group">
                             <span class="input-group-addon primary">
                                 <span class="arrow"></span>
                                 <i class="far fa-address-card"></i>
                             </span>
-                            <input type="text" placeholder="Adresse" class="form-control">
-                        </div>
+                                        <input type="text" placeholder="Adresse" class="form-control">
+                                    </div>
 
-
-                        <!-- Tel -->
-                        <div class="input-group">
+                                    <!-- Tel -->
+                                    <div class="input-group">
                             <span class="input-group-addon primary">
                                 <span class="arrow"></span>
                                 <i class="fas fa-phone"></i>
                             </span>
-                            <input type="tel" placeholder="Tel" class="form-control">
-                        </div>
+                                        <input type="tel" placeholder="Tel" class="form-control">
+                                    </div>
 
-
-                        <!-- Interlocuteur -->
-                        <div class="input-group">
+                                    <!-- Interlocuteur -->
+                                    <div class="input-group">
                             <span class="input-group-addon primary">
                                 <span class="arrow"></span>
                                 <i class="fas fa-phone"></i>
                             </span>
-                            <input type="text" placeholder="Interlocuteur" class="form-control">
+                                        <input type="text" placeholder="Interlocuteur" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                    </div>
-
-
-                    <!-- Select window type / form / formularz -->
-                    <div class="grid simple">
-                        <div class="grid-title">
-                            <h4>Forme (Formularz)</h4>
-                        </div>
-                        <div class="grid-body">
-                            <div class="radio radio-success">
+                        <!-- Select window type / form / formularz -->
+                        <div class="grid simple">
+                            <div class="grid-title">
+                                <h4>Forme (Formularz)</h4>
+                            </div>
+                            <div class="grid-body">
                                 <div class="radio radio-success">
-                                    <input type="radio" checked="checked" value="renovation" name="window-type"
-                                           id="renovation">
-                                    <label for="renovation">Renovation</label>
+                                    <div class="radio radio-success">
+                                        <input type="radio" checked="checked" value="renovation" name="window-type"
+                                               id="renovation">
+                                        <label for="renovation">Renovation</label>
 
-                                    <input type="radio" value="iso" name="window-type" id="iso">
-                                    <label for="iso">ISO 100 / 120 / 140</label>
+                                        <input type="radio" value="iso" name="window-type" id="iso">
+                                        <label for="iso">ISO 100 / 120 / 140</label>
 
-                                    <input type="radio" value="traditionnel" name="window-type" id="traditionnel">
-                                    <label for="traditionnel">Traditionnel</label>
+                                        <input type="radio" value="traditionnel" name="window-type" id="traditionnel">
+                                        <label for="traditionnel">Traditionnel</label>
 
-                                    <input type="radio" value="enteree" name="window-type" id="enteree">
-                                    <label for="enteree">Porte d'enteree 105 & 120</label>
+                                        <input type="radio" value="enteree" name="window-type" id="enteree">
+                                        <label for="enteree">Porte d'enteree 105 & 120</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
 
                 <!-- Step 2 -->
                 <div class="tab-pane" id="tab2">
-                    <div class="group">
+                    <h2> 1-11 </h2>
+                    <div class="group template-33">
                         <!-- Grid 1 -->
                         <div class="grid simple">
                             <div class="grid-title">
@@ -459,12 +466,29 @@
                     </div>
                 </div>
 
-                <!-- Step -->
+                <!-- Step 3 -->
                 <div class="tab-pane" id="tab3">
-                    User setting step
+                    <div class="inputs">
+                        <div class="input-group">
+                            <span class="input-group-addon primary">
+                                <span class="arrow"></span>
+                                <i class="far fa-address-card"></i>
+                            </span>
+                            <input type="text" placeholder="Quantite" class="form-control">
+                        </div>
+
+                        <div class="input-group">
+                            <span class="input-group-addon primary">
+                                <span class="arrow"></span>
+                                <i class="far fa-address-card"></i>
+                            </span>
+                            <input type="text" placeholder="H. Poignee" class="form-control">
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Step -->
+                <!-- Step 4 -->
                 <div class="tab-pane" id="tab4">
                     Feedback step
                 </div>

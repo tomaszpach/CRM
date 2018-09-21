@@ -23,11 +23,22 @@
     .grid {
       display: flex;
       flex-direction: column;
-      width: 33%;
 
       .grid-body {
         flex: 1 0 auto;
         padding: 15px;
+      }
+    }
+
+    &.template-50 {
+      .grid {
+        width: 49%;
+      }
+    }
+
+    &.template-33 {
+      .grid {
+        width: 33%;
       }
     }
   }
