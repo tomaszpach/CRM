@@ -28,11 +28,12 @@
     }
 
     .grid-body {
-      flex: 1 0 auto;
+      flex: 1 0;
       padding: 15px;
     }
   }
 
+  // template helpers class
   &.template-100 .grid {
     width: 100%;
   }
@@ -53,8 +54,9 @@
 }
 
 .radio label {
-  display: block;
+  //display: block;
 
+  // fix for missed dot in radio buttons
   &::before,
   &::after {
     left: 0;
@@ -62,6 +64,7 @@
   }
 }
 
+// helper class to center elements
 .flex-center {
   align-items: center;
   display: flex;
@@ -69,6 +72,7 @@
   text-align: center;
 }
 
+// make pager to be fixed position at the bottom
 .pager {
   bottom: 0;
   padding: 0 19px;
