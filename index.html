@@ -468,22 +468,74 @@
 
                 <!-- Step 3 -->
                 <div class="tab-pane" id="tab3">
-                    <div class="inputs">
-                        <div class="input-group">
-                            <span class="input-group-addon primary">
-                                <span class="arrow"></span>
-                                <i class="far fa-address-card"></i>
-                            </span>
-                            <input type="text" placeholder="Quantite" class="form-control">
+
+                    <div class="group template-100">
+                        <!-- Position title -->
+                        <div class="grid simple">
+                            <div class="grid-title">
+                                <h4>Position</h4>
+                            </div>
+
+                            <!-- Grids body wrapper -->
+                            <div class="grids-body-wrapper">
+                                <div class="grid-body">
+                                    <!-- Requested inputs -->
+                                    <div class="inputs">
+                                        <div class="input-group">
+                                        <span class="input-group-addon primary">
+                                            <span class="arrow"></span>
+                                            <i class="far fa-address-card"></i>
+                                        </span>
+                                            <input type="text" placeholder="Quantite" class="form-control">
+                                        </div>
+
+                                        <div class="input-group">
+                                        <span class="input-group-addon primary">
+                                            <span class="arrow"></span>
+                                            <i class="far fa-address-card"></i>
+                                        </span>
+                                            <input type="text" placeholder="H. Poignee" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Radio buttons for Position -->
+                                <div class="grid-body">
+                                    <div class="radio radio-success">
+                                        <div class="radio radio-success">
+                                            <input type="radio" checked="checked" value="poignee-centree"
+                                                   name="position"
+                                                   id="poignee-centree">
+                                            <label for="poignee-centree">Poignee centree</label>
+
+                                            <input type="radio" value="faux-ouvrant" name="position" id="faux-ouvrant">
+                                            <label for="faux-ouvrant">Faux-ouvrant</label>
+
+                                            <input type="radio" value="porte-fenetre" name="position"
+                                                   id="porte-fenetre">
+                                            <label for="porte-fenetre">Porte-fenetre</label>
+
+                                            <input type="radio" value="double-beq-serrure" name="position" id="double-beq-serrure">
+                                            <label for="double-beq-serrure">Double beq + serrure</label>
+
+                                            <input type="radio" value="seuil-bas-20mm-pvc" name="position" id="seuil-bas-20mm-pvc">
+                                            <label for="seuil-bas-20mm-pvc">Seuil bas 20mm (PVC)</label>
+
+                                            <input type="radio" value="seuil-bas-20mm-alu" name="position" id="seuil-bas-20mm-alu">
+                                            <label for="seuil-bas-20mm-alu">Seuil bas 20mm (ALU)</label>
+
+                                            <input type="radio" value="seuil-bas-20mm-alu-cstb" name="position" id="seuil-bas-20mm-alu-cstb">
+                                            <label for="seuil-bas-20mm-alu-cstb">Seuil bas 20mm (ALU) (CSTB)</label>
+
+                                            <input type="radio" value="oscillo-coulissant" name="position" id="oscillo-coulissant">
+                                            <label for="oscillo-coulissant">Oscillo-coulissant</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="input-group">
-                            <span class="input-group-addon primary">
-                                <span class="arrow"></span>
-                                <i class="far fa-address-card"></i>
-                            </span>
-                            <input type="text" placeholder="H. Poignee" class="form-control">
-                        </div>
+
                     </div>
 
                 </div>
