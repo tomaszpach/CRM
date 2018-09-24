@@ -80,7 +80,7 @@
   padding: 0 19px;
   position: sticky;
   width: 100%;
-  z-index: 11; }
+  z-index: 100; }
   .pager li {
     flex: 1;
     padding: 0; }
