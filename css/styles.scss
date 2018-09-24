@@ -30,6 +30,7 @@ $screen-lg: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 40px;
 }
 
 .grid.simple {
@@ -113,6 +114,7 @@ $screen-lg: 1200px;
 // Make pager to be fixed position at the bottom
 .pager {
   bottom: 0;
+  margin-bottom: 35px;
   padding: 0 19px;
   position: fixed;
   width: 100%;
