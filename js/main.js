@@ -16,9 +16,13 @@ jQuery(document).ready(function() {
             rootwizard.find('#bar .progress-bar').css({width:$percent+'%'});
 
             if ($percent === 100) {
-                rootwizard.find('.pager .finish').css('display', 'inline-block');
+                rootwizard.find('.pager .finish').show();
+                rootwizard.find('.pager .next').hide();
+                rootwizard.find('.pager .finish').addClass('show-btn');
             } else {
                 rootwizard.find('.pager .finish').hide();
+                rootwizard.find('.pager .next').show();
+                rootwizard.find('.pager .finish').removeClass('show-btn');
             }
         }
     });

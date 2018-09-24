@@ -10,6 +10,7 @@ $screen-lg: 1200px;
 
 .tab-content {
   overflow: unset;
+  padding-bottom: 20px;
 
   > .active .inputs {
     margin-bottom: 15px;
@@ -32,8 +33,6 @@ $screen-lg: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 40px;
-  padding-bottom: 35px;
 }
 
 .grid.simple {
@@ -115,17 +114,30 @@ $screen-lg: 1200px;
 }
 
 // Make pager to be fixed position at the bottom
+// todo check sticky on mobile and other browsers
 .pager {
+  bottom: 40px;
+  display: flex;
   margin-bottom: 20px;
   padding: 0 19px;
   position: sticky;
-  top: 92vh;
+  position: -webkit-sticky;
   width: 100%;
   z-index: 11;
 
-  li > a {
-    font-size: 16px;
-    padding: 7px 18px;
+  li {
+    flex: 1;
+    padding: 0;
+
+    > a {
+      font-size: 16px;
+      padding: 7px 18px;
+      width: calc(100% - 5px);
+    }
+  }
+
+  li.show-btn {
+    display: inline-block;
   }
 }
 

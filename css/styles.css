@@ -2,7 +2,8 @@
   margin-bottom: 40px; }
 
 .tab-content {
-  overflow: unset; }
+  overflow: unset;
+  padding-bottom: 20px; }
   .tab-content > .active .inputs {
     margin-bottom: 15px; }
     .tab-content > .active .inputs:last-child {
@@ -16,9 +17,7 @@
 .grid-group {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  padding-bottom: 35px; }
+  justify-content: space-between; }
 
 .grid.simple {
   display: flex;
@@ -75,15 +74,23 @@
   text-align: center; }
 
 .pager {
+  bottom: 40px;
+  display: flex;
   margin-bottom: 20px;
   padding: 0 19px;
   position: sticky;
-  top: 92vh;
+  position: -webkit-sticky;
   width: 100%;
   z-index: 11; }
-  .pager li > a {
-    font-size: 16px;
-    padding: 7px 18px; }
+  .pager li {
+    flex: 1;
+    padding: 0; }
+    .pager li > a {
+      font-size: 16px;
+      padding: 7px 18px;
+      width: calc(100% - 5px); }
+  .pager li.show-btn {
+    display: inline-block; }
 
 .flex-column {
   flex-direction: column; }
