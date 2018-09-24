@@ -1,82 +1,100 @@
-// todo take a look at RWD!
-// todo check sass-lint errors and figure out better solutions
+$screen-xs: 576px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
 
+// Bootstrap wizard
 .form-wizard-steps {
   margin-bottom: 40px;
 }
 
-.tab-pane {
+.tab-content > .active {
   .inputs {
     margin-bottom: 15px;
 
-    .input-group {
-      margin-bottom: 5px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 }
 
-// panels
+.input-group {
+  margin-bottom: 5px;
 
-.tab-content .group {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.grid-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
 
-  .grid {
+.grid.simple {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  .grids-body-wrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
 
-    .grids-body-wrapper {
-      display: flex;
-    }
-
-    &.simple {
-      .grid-title {
-        align-items: center;
-        display: flex;
-        height: 36px;
-        padding: 0 0 0 15px;
-
-        h4 {
-          margin-bottom: 0;
-          width: 100%;
-        }
-      }
-    }
-
-    .grid-body {
-      flex: 1 0;
-      padding: 15px;
-
-      div:last-child {
-        margin-bottom: 0;
-      }
+    @media (min-width: $screen-xs) {
+      flex-direction: row;
     }
   }
 
-  // template helpers class
-  &.template-100 .grid {
-    width: 100%;
-  }
-
-  &.template-50 .grid {
-    width: 49%;
-  }
-
-  &.template-33 .grid {
-    width: 33%;
+  .grid-body {
+    flex: 1 0;
+    padding: 15px;
   }
 }
 
-.radio label {
-  //display: block;
+.grid-title {
+  align-items: center;
+  display: flex;
+  height: 36px;
+  padding: 0 0 0 15px;
 
-  // fix for missed dot in radio buttons
+  h4 {
+    margin-bottom: 0;
+    width: 100%;
+  }
+}
+
+// Template class
+.template-100 .grid {
+  width: 100%;
+}
+
+.template-50 .grid {
+  width: 100%;
+
+  @media (min-width: $screen-xs) {
+    width: calc(50% - 6px);
+  }
+}
+
+.template-33 .grid {
+  width: 100%;
+
+  @media (min-width: $screen-xs) {
+    width: calc(50% - 6px);
+  }
+
+  @media (min-width: $screen-sm) {
+    width: calc(33% - 6px);
+  }
+
+  @media (min-width: $screen-lg) {
+    width: calc(25% - 12px);
+  }
+}
+
+// Fix for dots on Windows with scaled page
+.radio label {
   &::before,
   &::after {
     left: 0;
@@ -84,7 +102,7 @@
   }
 }
 
-// helper class to center elements
+// Helper class to center elements
 .flex-center {
   align-items: center;
   display: flex;
@@ -92,7 +110,7 @@
   text-align: center;
 }
 
-// make pager to be fixed position at the bottom
+// Make pager to be fixed position at the bottom
 .pager {
   bottom: 0;
   padding: 0 19px;
