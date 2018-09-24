@@ -8,8 +8,10 @@ $screen-lg: 1200px;
   margin-bottom: 40px;
 }
 
-.tab-content > .active {
-  .inputs {
+.tab-content {
+  overflow: unset;
+
+  > .active .inputs {
     margin-bottom: 15px;
 
     &:last-child {
@@ -31,6 +33,7 @@ $screen-lg: 1200px;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 40px;
+  padding-bottom: 35px;
 }
 
 .grid.simple {
@@ -113,10 +116,19 @@ $screen-lg: 1200px;
 
 // Make pager to be fixed position at the bottom
 .pager {
-  bottom: 0;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
   padding: 0 19px;
-  position: fixed;
+  position: sticky;
+  top: 92vh;
   width: 100%;
   z-index: 11;
+
+  li > a {
+    font-size: 16px;
+    padding: 7px 18px;
+  }
+}
+
+.flex-column {
+  flex-direction: column;
 }

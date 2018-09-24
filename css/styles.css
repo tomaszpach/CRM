@@ -1,10 +1,12 @@
 .form-wizard-steps {
   margin-bottom: 40px; }
 
-.tab-content > .active .inputs {
-  margin-bottom: 15px; }
-  .tab-content > .active .inputs:last-child {
-    margin-bottom: 0; }
+.tab-content {
+  overflow: unset; }
+  .tab-content > .active .inputs {
+    margin-bottom: 15px; }
+    .tab-content > .active .inputs:last-child {
+      margin-bottom: 0; }
 
 .input-group {
   margin-bottom: 5px; }
@@ -15,7 +17,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  padding-bottom: 35px; }
 
 .grid.simple {
   display: flex;
@@ -72,11 +75,17 @@
   text-align: center; }
 
 .pager {
-  bottom: 0;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
   padding: 0 19px;
-  position: fixed;
+  position: sticky;
+  top: 92vh;
   width: 100%;
   z-index: 11; }
+  .pager li > a {
+    font-size: 16px;
+    padding: 7px 18px; }
+
+.flex-column {
+  flex-direction: column; }
 
 /*# sourceMappingURL=styles.css.map */
