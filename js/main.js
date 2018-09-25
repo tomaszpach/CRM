@@ -1,43 +1,31 @@
 jQuery(document).ready(function () {
-    let rootwizard = $('#rootwizard');
-    rootwizard.find('.finish').click(function () {
+    let $rootWizard = $('#rootwizard'),
+        $pager = $rootWizard.find('.pager'),
+        $finish = $pager.find('.finish'),
+        $next = $pager.find('.next');
+
+    $rootWizard.find('.finish').click(function () {
         // todo do something on finish
         alert('Finished!, Starting over!');
-        rootwizard.find("a[href*='tab1']").trigger('click');
+        $rootWizard.find("a[href*='tab1']").trigger('click');
     });
 
-    rootwizard.bootstrapWizard({
+    $rootWizard.bootstrapWizard({
         'tabClass': 'form-wizard',
         onTabShow: function (tab, navigation, index) {
             let $total = navigation.find('li').length,
                 $current = index + 1,
                 $percent = ($current / $total) * 100;
 
-            rootwizard.find('#bar .progress-bar').css({width: $percent + '%'});
+            $rootWizard.find('#bar .progress-bar').css({width: $percent + '%'});
 
             if ($percent === 100) {
-                rootwizard.find('.pager .finish').show();
-                rootwizard.find('.pager .next').hide();
-                rootwizard.find('.pager .finish').addClass('show-btn');
+                $finish.show();
+                $next.hide();
             } else {
-                rootwizard.find('.pager .finish').hide();
-                rootwizard.find('.pager .next').show();
-                rootwizard.find('.pager .finish').removeClass('show-btn');
+                $finish.hide();
+                $next.show();
             }
         }
     });
-
-
-    // todo check on desktop
-    // Check if keyboard is open and hide navigation buttons
-    (function detectKeyboard() {
-        let originalSize = $(window).width() + $(window).height();
-        $(window).resize(function () {
-            if ($(window).width() + $(window).height() !== originalSize) {
-                rootwizard.find('.pager').hide();
-            } else {
-                rootwizard.find('.pager').show();
-            }
-        });
-    })();
 });
