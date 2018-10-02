@@ -1,8 +1,10 @@
 $(document).ready(function () {
-    const $content = document.getElementsByClassName('page-container')[0];
+    const $content = document.getElementById('page-content');
     let graph, rick;
 
     // Animate numbers
+    // todo prepare animates for progress bars
+    // todo do something with refresh icon
     const initAnimateNumbers = function (className) {
         const elements = $content.getElementsByClassName(className);
         Object.values(elements).forEach(element => {
