@@ -1,21 +1,24 @@
-jQuery(document).ready(function () {
+$(document).ready(function () {
     var graph;
     var rick;
+
+    initAnimateNumbers('animate-number');
     loadServerChart();
     loadSampleChart();
 
-    var initAnimation = function(){
-        $('[data-init="animate-number"], .animate-number').each(function () {
-            var data = $(this).data();
-            $(this).animateNumbers(data.value, true, parseInt(data.animationDuration, 10));
-        });
-        $('[data-init="animate-progress-bar"], .animate-progress-bar').each(function () {
-            var data = $(this).data();
-            $(this).css('width', data.percentage);
-        });
-    };
+    function initAnimateNumbers(className) {
+        let elements = document.getElementsByClassName(className);
 
-    initAnimation();
+        for (let i = 0; i < elements.length; i++) {
+            let element = elements[i],
+                data = element.dataset;
+
+            if (data) {
+                $(element).animateNumbers(data.value, false, parseInt(data.animationDuration, 10));
+            }
+        }
+    }
+
 
     $("#mini-chart-orders").sparkline([1,4,6,2,0,5,6,4], {
         type: 'bar',
@@ -332,39 +335,4 @@ jQuery(document).ready(function () {
             },
         });
     }
-
-    // function isGreater(a, b, callbackFunction) {
-    //     let greater = false;
-    //
-    //     if (a > b) {
-    //         greater = true;
-    //     }
-    //
-    //     callbackFunction(greater);
-    // }
-    //
-    // isGreater(5, 4, function(result) {
-    //     if (result) {
-    //         console.log('greater')
-    //     } else {
-    //         console.log('smaller');
-    //     }
-    // })
-
-    const isGreater = (a, b) => {
-        return new Promise ((resolve, reject) => {
-            if(a > b) {
-                resolve(true)
-            } else {
-                reject(false)
-            }
-        })
-    }
-    isGreater(3, 2)
-        .then(result => {
-            console.log('greater')
-        })
-        .catch(result => {
-            console.log('smaller')
-        })
 });
