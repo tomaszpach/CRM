@@ -1,23 +1,16 @@
 $(document).ready(function () {
-    let graph;
-    let rick;
+    const $content = document.getElementsByClassName('page-container')[0];
+    let graph, rick;
 
+    // Animate numbers
+    const initAnimateNumbers = function (className) {
+        const elements = $content.getElementsByClassName(className);
+        Object.values(elements).forEach(element => {
+            const { value, animationDuration } = element.dataset;
+            $(element).animateNumbers(value, true, parseInt(animationDuration, 10));
+        });
+    };
     initAnimateNumbers('animate-number');
-    loadServerChart();
-    loadSampleChart();
-
-    function initAnimateNumbers(className) {
-        let elements = document.getElementsByClassName(className);
-
-        for (let i = 0; i < elements.length; i++) {
-            let element = elements[i],
-                data = element.dataset;
-
-            if (data) {
-                $(element).animateNumbers(data.value, false, parseInt(data.animationDuration, 10));
-            }
-        }
-    }
 
     // Sparkline charts
     $("#mini-chart-orders").sparkline([1, 4, 6, 2, 0, 5, 6, 4], {
@@ -62,7 +55,7 @@ $(document).ready(function () {
         }
 
         graph = new Rickshaw.Graph({
-            element: document.querySelector("#chart"),
+            element: document.getElementById("chart"),
             height: 200,
             renderer: 'area',
             series: [
@@ -88,6 +81,7 @@ $(document).ready(function () {
 
         }, 1000);
     }
+    loadServerChart();
 
     // Ricksaw Chart Sample
     function loadSampleChart() {
@@ -99,7 +93,7 @@ $(document).ready(function () {
         }
 
         rick = new Rickshaw.Graph({
-            element: document.querySelector("#ricksaw"),
+            element: document.getElementById("ricksaw"),
             height: 200,
             renderer: 'area',
             series: [
@@ -126,9 +120,9 @@ $(document).ready(function () {
         random.addData(seriesData);
         rick.update();
 
-        let ticksTreatment = 'glow';
+        const ticksTreatment = 'glow';
 
-        let xAxis = new Rickshaw.Graph.Axis.Time({
+        const xAxis = new Rickshaw.Graph.Axis.Time({
             graph: rick,
             ticksTreatment: ticksTreatment,
             timeFixture: new Rickshaw.Fixtures.Time.Local()
@@ -136,13 +130,13 @@ $(document).ready(function () {
 
         xAxis.render();
 
-        let yAxis = new Rickshaw.Graph.Axis.Y({
+        const yAxis = new Rickshaw.Graph.Axis.Y({
             graph: rick,
             tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
             ticksTreatment: ticksTreatment
         });
 
-        let legend = new Rickshaw.Graph.Legend({
+        const legend = new Rickshaw.Graph.Legend({
             graph: rick,
             element: document.getElementById('legend')
         });
@@ -164,22 +158,22 @@ $(document).ready(function () {
             legend: legend
         });
     }
+    loadSampleChart();
 
 
     //Weahter Icons
-    let loadAnimatedWeatherIcons = function () {
+    const loadAnimatedWeatherIcons = function () {
         /*** Animated Weather Icon **/
-        let icons = new Skycons({"color": "white"});
+        const icons = new Skycons({"color": "white"});
         icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
         icons.set("wind", Skycons.WIND);
         icons.play();
     };
-
     loadAnimatedWeatherIcons();
 
 
     //Jquery vector map
-    let cityAreaData = [
+    const cityAreaData = [
         500.70,
         410.16,
         210.69,
