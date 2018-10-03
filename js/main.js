@@ -1,24 +1,42 @@
+const $content = document.getElementById('page-content');
+
+// Animate numbers
+const initAnimateNumbers = numbersClass => {
+    const numbers = $content.getElementsByClassName(numbersClass);
+    Object.values(numbers).forEach(number => {
+        const {value, animationDuration} = number.dataset;
+        $(number).animateNumbers(value, true, parseInt(animationDuration, 10));
+    });
+};
+
+// Animate progress bar
+const initProgressBars = progressClass => {
+    const progress = $content.getElementsByClassName(progressClass);
+    Object.values(progress).forEach(bar => {
+        const {percentage} = bar.dataset;
+        bar.style.width = percentage || "100%";
+    });
+};
+
+/**
+ * Reload numbers and animate them
+ * Add [data-value-start] to change default (0) start value
+ * Example: data-value-start="2137"
+ */
+const reloadAnimateNumber = () => {
+    const $element = event.path[2],
+        $animateNumber = $element.getElementsByClassName('animate-number')[0],
+        dataSet = $animateNumber.dataset,
+        {valueStart = 0, value, animationDuration} = dataSet;
+
+    $animateNumber.innerText = valueStart;
+    $($animateNumber).animateNumbers(value, true, parseInt(animationDuration, 10));
+};
+
 $(document).ready(function () {
-    const $content = document.getElementById('page-content');
     let graph, rick;
 
-    // Animate numbers and progress bar
-    const initAnimateNumbers = numbersClass => {
-        const numbers = $content.getElementsByClassName(numbersClass);
-        Object.values(numbers).forEach(number => {
-            const { value, animationDuration } = number.dataset;
-            $(number).animateNumbers(value, true, parseInt(animationDuration, 10));
-        });
-    };
     initAnimateNumbers('animate-number');
-
-    const initProgressBars = progressClass => {
-        const progress = $content.getElementsByClassName(progressClass);
-        Object.values(progress).forEach(bar => {
-            const { percentage } = bar.dataset;
-            bar.style.width = percentage || "100%";
-        });
-    };
     initProgressBars('animate-progress-bar');
 
     // Sparkline charts
@@ -90,6 +108,7 @@ $(document).ready(function () {
 
         }, 1000);
     }
+
     loadServerChart();
 
     // Ricksaw Chart Sample
@@ -167,6 +186,7 @@ $(document).ready(function () {
             legend: legend
         });
     }
+
     loadSampleChart();
 
 
