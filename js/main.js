@@ -2,17 +2,24 @@ $(document).ready(function () {
     const $content = document.getElementById('page-content');
     let graph, rick;
 
-    // Animate numbers
-    // todo prepare animates for progress bars
-    // todo do something with refresh icon
-    const initAnimateNumbers = function (className) {
-        const elements = $content.getElementsByClassName(className);
-        Object.values(elements).forEach(element => {
-            const { value, animationDuration } = element.dataset;
-            $(element).animateNumbers(value, true, parseInt(animationDuration, 10));
+    // Animate numbers and progress bar
+    const initAnimateNumbers = numbersClass => {
+        const numbers = $content.getElementsByClassName(numbersClass);
+        Object.values(numbers).forEach(number => {
+            const { value, animationDuration } = number.dataset;
+            $(number).animateNumbers(value, true, parseInt(animationDuration, 10));
         });
     };
     initAnimateNumbers('animate-number');
+
+    const initProgressBars = progressClass => {
+        const progress = $content.getElementsByClassName(progressClass);
+        Object.values(progress).forEach(bar => {
+            const { percentage } = bar.dataset;
+            bar.style.width = percentage || "100%";
+        });
+    };
+    initProgressBars('animate-progress-bar');
 
     // Sparkline charts
     $("#mini-chart-orders").sparkline([1, 4, 6, 2, 0, 5, 6, 4], {
