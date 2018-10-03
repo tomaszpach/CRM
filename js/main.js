@@ -25,17 +25,40 @@ const initProgressBars = progressClass => {
  */
 const reloadAnimateNumber = () => {
     const $element = event.path[2],
-        $animateNumber = $element.getElementsByClassName('animate-number')[0],
-        dataSet = $animateNumber.dataset,
-        {valueStart = 0, value, animationDuration} = dataSet;
+        $animateNumber = $element.getElementsByClassName('animate-number')[0];
 
-    $animateNumber.innerText = valueStart;
-    $($animateNumber).animateNumbers(value, true, parseInt(animationDuration, 10));
+    if ($animateNumber) {
+        const dataSet = $animateNumber.dataset ? $animateNumber.dataset : {},
+            {valueStart = 0, value, animationDuration} = dataSet;
+
+        $animateNumber.innerText = valueStart;
+        $($animateNumber).animateNumbers(value, true, parseInt(animationDuration, 10));
+    }
+};
+
+const reloadProgressBar = () => {
+    const $element = event.path[2],
+        $progressBar = $element.getElementsByClassName('progress-bar')[0];
+
+    if ($progressBar) {
+        const dataSet = $progressBar.dataset,
+            {percentage} = dataSet;
+
+        $progressBar.style.transition = "all 100ms";
+        $progressBar.style.width = "0%";
+        setTimeout(() => {
+            $progressBar.style.transition = "all 1000ms";
+            $progressBar.style.width = percentage;
+        }, 100);
+    }
+};
+
+const reloadData = () => {
+    reloadAnimateNumber();
+    reloadProgressBar();
 };
 
 $(document).ready(function () {
-    let graph, rick;
-
     initAnimateNumbers('animate-number');
     initProgressBars('animate-progress-bar');
 
@@ -81,7 +104,7 @@ $(document).ready(function () {
             random.addData(seriesData);
         }
 
-        graph = new Rickshaw.Graph({
+        const graph = new Rickshaw.Graph({
             element: document.getElementById("chart"),
             height: 200,
             renderer: 'area',
@@ -120,7 +143,7 @@ $(document).ready(function () {
             random.addData(seriesData);
         }
 
-        rick = new Rickshaw.Graph({
+        const rick = new Rickshaw.Graph({
             element: document.getElementById("ricksaw"),
             height: 200,
             renderer: 'area',
