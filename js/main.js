@@ -1,4 +1,5 @@
-const $content = document.getElementById('page-content');
+const $content = document.getElementById('page-content'),
+    $tiles = $content.getElementsByClassName('tiles');
 
 // Init animate numbers on document read
 const initAnimateNumbers = numbersClass => {
@@ -23,24 +24,26 @@ const initProgressBars = progressClass => {
  * Add [data-value-start] to change default (0) start value
  * Example: data-value-start="2137"
  */
-$content.addEventListener('click', (event) => {
-    const $target = event.target,
-        path = event.path || (event.composedPath && event.composedPath());
+for (let i = 0; i < $tiles.length; i++) {
+    $tiles[i].addEventListener('click', (event) => {
+        const $target = event.target,
+            path = event.path || (event.composedPath && event.composedPath());
 
-    if ($target.matches('a.reload')) {
-        path.forEach(element => {
-            if (element.classList && (element.classList.contains('tiles-body') || element.classList.contains('tiles-chart'))) {
-                const $animateNumber = element.getElementsByClassName('animate-number')[0],
-                    $progressBar = element.getElementsByClassName('progress-bar')[0],
-                    animateNumber_DataSet = $animateNumber ? $animateNumber.dataset : null,
-                    progressBar_DataSet = $progressBar ? $progressBar.dataset : null;
+        if ($target.matches('.reload')) {
+            path.forEach(element => {
+                if (element.classList && (element.classList.contains('tiles-body') || element.classList.contains('tiles-chart'))) {
+                    const $animateNumber = element.getElementsByClassName('animate-number')[0],
+                        $progressBar = element.getElementsByClassName('progress-bar')[0],
+                        animateNumber_DataSet = $animateNumber ? $animateNumber.dataset : null,
+                        progressBar_DataSet = $progressBar ? $progressBar.dataset : null;
 
-                $animateNumber ? reloadNumbers($animateNumber, animateNumber_DataSet) : null;
-                $progressBar ? reloadProgressBar($progressBar, progressBar_DataSet) : null;
-            }
-        });
-    }
-});
+                    $animateNumber ? reloadNumbers($animateNumber, animateNumber_DataSet) : null;
+                    $progressBar ? reloadProgressBar($progressBar, progressBar_DataSet) : null;
+                }
+            });
+        }
+    })
+}
 
 const reloadNumbers = (element, dataSet) => {
     const {valueStart = 0, value, animationDuration} = dataSet;
