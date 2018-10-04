@@ -23,9 +23,9 @@ const initProgressBars = progressClass => {
  * Add [data-value-start] to change default (0) start value
  * Example: data-value-start="2137"
  */
-$content.addEventListener('click', () => {
+$content.addEventListener('click', (event) => {
     const $target = event.target,
-        path = event.path;
+        path = event.path || (event.composedPath && event.composedPath());
 
     if ($target.matches('a.reload')) {
         path.forEach(element => {
