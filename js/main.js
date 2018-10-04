@@ -23,9 +23,9 @@ const initProgressBars = progressClass => {
  * Add [data-value-start] to change default (0) start value
  * Example: data-value-start="2137"
  */
-const reloadAnimateNumber = () => {
-    const $element = event.path[2],
-        $animateNumber = $element.getElementsByClassName('animate-number')[0];
+const reloadAnimateNumber = (event) => {
+    const $element = event.path || (event.composedPath && event.composedPath()),
+        $animateNumber = $element[2].getElementsByClassName('animate-number')[0];
 
     if ($animateNumber) {
         const dataSet = $animateNumber.dataset ? $animateNumber.dataset : {},
@@ -36,9 +36,9 @@ const reloadAnimateNumber = () => {
     }
 };
 
-const reloadProgressBar = () => {
-    const $element = event.path[2],
-        $progressBar = $element.getElementsByClassName('progress-bar')[0];
+const reloadProgressBar = (event) => {
+    const $element = event.path || (event.composedPath && event.composedPath()),
+        $progressBar = $element[2].getElementsByClassName('progress-bar')[0];
 
     if ($progressBar) {
         const dataSet = $progressBar.dataset,
@@ -53,9 +53,9 @@ const reloadProgressBar = () => {
     }
 };
 
-const reloadData = () => {
-    reloadAnimateNumber();
-    reloadProgressBar();
+const reloadData = (event) => {
+    reloadAnimateNumber(event);
+    reloadProgressBar(event);
 };
 
 $(document).ready(function () {
