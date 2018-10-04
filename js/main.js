@@ -58,6 +58,11 @@ const reloadData = (event) => {
     reloadProgressBar(event);
 };
 
+// todo prepare remove function for event click
+const removeNode = () => {
+    console.log(event.path)
+};
+
 $(document).ready(function () {
     initAnimateNumbers('animate-number');
     initProgressBars('animate-progress-bar');
