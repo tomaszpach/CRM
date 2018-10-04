@@ -1,6 +1,6 @@
 const $content = document.getElementById('page-content');
 
-// Animate numbers
+// Init animate numbers on document read
 const initAnimateNumbers = numbersClass => {
     const numbers = $content.getElementsByClassName(numbersClass);
     Object.values(numbers).forEach(number => {
@@ -9,7 +9,7 @@ const initAnimateNumbers = numbersClass => {
     });
 };
 
-// Animate progress bar
+// Init animate progress bar on document read
 const initProgressBars = progressClass => {
     const progress = $content.getElementsByClassName(progressClass);
     Object.values(progress).forEach(bar => {
@@ -19,43 +19,46 @@ const initProgressBars = progressClass => {
 };
 
 /**
- * Reload numbers and animate them
+ * Reload numbers and progress bar onClick
  * Add [data-value-start] to change default (0) start value
  * Example: data-value-start="2137"
  */
-const reloadAnimateNumber = (event) => {
-    const $element = event.path || (event.composedPath && event.composedPath()),
-        $animateNumber = $element[2].getElementsByClassName('animate-number')[0];
+$content.addEventListener('click', () => {
+    const $target = event.target,
+        path = event.path;
 
-    if ($animateNumber) {
-        const dataSet = $animateNumber.dataset ? $animateNumber.dataset : {},
-            {valueStart = 0, value, animationDuration} = dataSet;
+    if ($target.matches('a.reload')) {
+        path.forEach(element => {
+            if (element.classList && (element.classList.contains('tiles-body') || element.classList.contains('tiles-chart'))) {
+                const $animateNumber = element.getElementsByClassName('animate-number')[0],
+                    $progressBar = element.getElementsByClassName('progress-bar')[0],
+                    animateNumber_DataSet = $animateNumber ? $animateNumber.dataset : null,
+                    progressBar_DataSet = $progressBar ? $progressBar.dataset : null;
 
-        $animateNumber.innerText = valueStart;
-        $($animateNumber).animateNumbers(value, true, parseInt(animationDuration, 10));
+                $animateNumber ? reloadNumbers($animateNumber, animateNumber_DataSet) : null;
+                $progressBar ? reloadProgressBar($progressBar, progressBar_DataSet) : null;
+            }
+        });
     }
+});
+
+const reloadNumbers = (element, dataSet) => {
+    const {valueStart = 0, value, animationDuration} = dataSet;
+
+    element.innerText = valueStart;
+    $(element).animateNumbers(value, true, parseInt(animationDuration, 10));
 };
 
-const reloadProgressBar = (event) => {
-    const $element = event.path || (event.composedPath && event.composedPath()),
-        $progressBar = $element[2].getElementsByClassName('progress-bar')[0];
+const reloadProgressBar = (element, dataSet) => {
+    const {percentage} = dataSet;
 
-    if ($progressBar) {
-        const dataSet = $progressBar.dataset,
-            {percentage} = dataSet;
+    element.style.transition = "all 100ms";
+    element.style.width = "0%";
 
-        $progressBar.style.transition = "all 100ms";
-        $progressBar.style.width = "0%";
-        setTimeout(() => {
-            $progressBar.style.transition = "all 1000ms";
-            $progressBar.style.width = percentage;
-        }, 100);
-    }
-};
-
-const reloadData = (event) => {
-    reloadAnimateNumber(event);
-    reloadProgressBar(event);
+    setTimeout(() => {
+        element.style.transition = "all 1000ms";
+        element.style.width = percentage;
+    }, 100);
 };
 
 // todo prepare remove function for event click
