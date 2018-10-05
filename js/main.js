@@ -1,67 +1,124 @@
-const $content = document.getElementById('page-content');
+/**
+ * Init and reload buttons for animate numbers and progress bars
+ */
+const $pageContent = document.getElementById('page-content'),
+    $tiles = $pageContent.getElementsByClassName('tiles');
 
-// Animate numbers
-const initAnimateNumbers = numbersClass => {
-    const numbers = $content.getElementsByClassName(numbersClass);
+/**
+ * Init animate numbers on document ready
+ * @param numbersClass - animate numbers class (default: animate-number)
+ */
+const initAnimateNumbers = (numbersClass = 'animate-number') => {
+    const numbers = $pageContent.getElementsByClassName(numbersClass);
     Object.values(numbers).forEach(number => {
         const {value, animationDuration} = number.dataset;
         $(number).animateNumbers(value, true, parseInt(animationDuration, 10));
     });
 };
 
-// Animate progress bar
-const initProgressBars = progressClass => {
-    const progress = $content.getElementsByClassName(progressClass);
+/**
+ * Init animate progress bar on document read
+ * Add [data-animation-duration] to change animation duration time (default: 1000)
+ * @param progressClass - progress bar class (default: animate-progress-bar)
+ */
+const initProgressBars = (progressClass = 'animate-progress-bar') => {
+    const progress = $pageContent.getElementsByClassName(progressClass);
     Object.values(progress).forEach(bar => {
-        const {percentage} = bar.dataset;
-        bar.style.width = percentage || "100%";
+        const {percentage = "0", animationDuration = 1000} = bar.dataset;
+        bar.style.transition = `all ${animationDuration}ms`;
+        bar.style.width = percentage;
     });
 };
 
 /**
- * Reload numbers and animate them
- * Add [data-value-start] to change default (0) start value
- * Example: data-value-start="2137"
+ * Add event listener to all tiles found and hook reload and remove functions to it
  */
-const reloadAnimateNumber = (event) => {
-    console.log(event);
-    const $element = event.path[2],
-        $animateNumber = $element.getElementsByClassName('animate-number')[0];
+for (let i = 0; i < $tiles.length; i++) {
+    $tiles[i].addEventListener('click', (event) => {
+        const $target = event.target,
+            path = event.path || (event.composedPath && event.composedPath());
 
-    if ($animateNumber) {
-        const dataSet = $animateNumber.dataset ? $animateNumber.dataset : {},
-            {valueStart = 0, value, animationDuration} = dataSet;
+        reloadTile($target, path);
+        removeTile($target, path);
+    })
+}
 
-        $animateNumber.innerText = valueStart;
-        $($animateNumber).animateNumbers(value, true, parseInt(animationDuration, 10));
+/**
+ * Reload numbers and progress bar on click
+ * @param $target - clicked element. Required to check if we clicked on .reload DOM element
+ * @param path - path from clicked element to document
+ */
+const reloadTile = ($target, path) => {
+    if ($target.matches('.reload')) {
+        path.forEach(element => {
+            if (element.classList && (element.classList.contains('tiles-body') || element.classList.contains('tiles-chart'))) {
+                const $animateNumber = element.getElementsByClassName('animate-number')[0],
+                    $progressBar = element.getElementsByClassName('progress-bar')[0],
+                    animateNumber_DataSet = $animateNumber ? $animateNumber.dataset : null,
+                    progressBar_DataSet = $progressBar ? $progressBar.dataset : null;
+
+                $animateNumber ? reloadAnimateNumbers($animateNumber, animateNumber_DataSet) : null;
+                $progressBar ? reloadAnimateProgressBar($progressBar, progressBar_DataSet) : null;
+            }
+        });
     }
 };
 
-const reloadProgressBar = (event) => {
-    const $element = event.path[2],
-        $progressBar = $element.getElementsByClassName('progress-bar')[0];
-
-    if ($progressBar) {
-        const dataSet = $progressBar.dataset,
-            {percentage} = dataSet;
-
-        $progressBar.style.transition = "all 100ms";
-        $progressBar.style.width = "0%";
-        setTimeout(() => {
-            $progressBar.style.transition = "all 1000ms";
-            $progressBar.style.width = percentage;
-        }, 100);
+/**
+ * Remove whole tile with wrapper from DOM element.
+ * !! Take a look how .remove() method works. It always remove one element above tile !!
+ * @param $target - clicked element. Required to check if we clicked on .remove DOM element
+ * @param path - path from clicked element to document
+ */
+const removeTile = ($target, path) => {
+    if ($target.matches('.remove')) {
+        let tilesPathIndex = null;
+        path.forEach((element, index) => {
+            if (element.classList && (element.classList.contains('tiles') || element.classList.contains('widget'))) {
+                tilesPathIndex = index;
+            }
+        });
+        path[tilesPathIndex + 1].remove(); // go up one element and delete tiles with wrapper.
     }
 };
 
-const reloadData = (event) => {
-    reloadAnimateNumber(event);
-    reloadProgressBar(event);
+/**
+ * Reload animate number function.
+ * !! Remember to change [data-value-start] if you want to start from other value than 0 !!
+ * Add [data-value-start] to change start value (default: 0)
+ * Example: data-value-start="2137"
+ * @param element - DOM element to animate (default: span with class .animate-number)
+ * @param dataSet - data taken from element
+ */
+const reloadAnimateNumbers = (element, dataSet) => {
+    const {valueStart = 0, value, animationDuration} = dataSet;
+
+    element.innerText = valueStart;
+    $(element).animateNumbers(value, true, parseInt(animationDuration, 10));
+};
+
+/**
+ * Reload animate progress bar function.
+ * Add [data-animation-duration] to change animation duration time (default: 1000)
+ * @param element - DOM element to animate (default: span with class .animate-progress-bar)
+ * @param dataSet - data taken from element
+ */
+const reloadAnimateProgressBar = (element, dataSet) => {
+    const {percentage, animationDuration = 1000} = dataSet,
+        time = 100;
+
+    element.style.transition = `all ${time}ms`;
+    element.style.width = "0%";
+
+    setTimeout(() => {
+        element.style.transition = `all ${animationDuration}ms`;
+        element.style.width = percentage;
+    }, time);
 };
 
 $(document).ready(function () {
-    initAnimateNumbers('animate-number');
-    initProgressBars('animate-progress-bar');
+    initAnimateNumbers();
+    initProgressBars();
 
     // Sparkline charts
     $("#mini-chart-orders").sparkline([1, 4, 6, 2, 0, 5, 6, 4], {
