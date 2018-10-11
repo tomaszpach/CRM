@@ -4,7 +4,15 @@
 .tiles .controller a.remove {
   background-image: url("http://webarch.revox.io/3.0/html/webarch/img/icon/portlet-tray.png"); }
 
-.reload {
+.reload, .remove {
   cursor: pointer; }
+
+#removed-popup {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 999;
+  color: red;
+  background: #fff; }
 
 /*# sourceMappingURL=styles.css.map */

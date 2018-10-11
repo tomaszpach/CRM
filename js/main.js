@@ -2,7 +2,8 @@
  * Init and reload buttons for animate numbers and progress bars
  */
 const $pageContent = document.getElementById('page-content'),
-    $tiles = $pageContent.getElementsByClassName('tiles');
+    $tiles = $pageContent.getElementsByClassName('tiles'),
+    $popup = document.getElementById('removed-popup');
 
 /**
  * Init animate numbers on document ready
@@ -39,7 +40,7 @@ for (let i = 0; i < $tiles.length; i++) {
             path = event.path || (event.composedPath && event.composedPath());
 
         reloadTile($target, path);
-        removeTile($target, path);
+        hideTile($target, path);
     })
 }
 
@@ -70,16 +71,35 @@ const reloadTile = ($target, path) => {
  * @param $target - clicked element. Required to check if we clicked on .remove DOM element
  * @param path - path from clicked element to document
  */
-const removeTile = ($target, path) => {
+const hideTile = ($target, path) => {
     if ($target.matches('.remove')) {
-        let tilesPathIndex = null;
+        let tilesPathIndex = null,
+            DOMElement;
+
         path.forEach((element, index) => {
             if (element.classList && (element.classList.contains('tiles') || element.classList.contains('widget'))) {
                 tilesPathIndex = index;
             }
         });
-        path[tilesPathIndex + 1].remove(); // go up one element and delete tiles with wrapper.
+        DOMElement = path[tilesPathIndex + 1];
+        // path[tilesPathIndex + 1].remove(); // go up one element and delete tiles with wrapper.
+        // console.log(DOMElement);
+        DOMElement.classList.add('hide'); // go up one element and HIDE tile with wrapper.
+        $popup.classList.remove('hide'); // show popup to restore hidden tile
+        restoreRemovedElement(DOMElement);
+
     }
+};
+
+const restoreRemovedElement = element => {
+    // console.log('restoreRemovedElement', element);
+    $popup.addEventListener('click', function () {
+        // element.classList.remove('hide');
+        // $popup.classList.add('hide');
+        console.log('element na kliku')
+
+        console.log(this);
+    });
 };
 
 /**
