@@ -5,6 +5,10 @@ const $pageContent = document.getElementById('page-content'),
     $tiles = $pageContent.getElementsByClassName('tiles'),
     $popup = document.getElementById('removed-popup');
 
+let $tileWrapper,
+    popupButtonTimeout;
+
+
 /**
  * Init animate numbers on document ready
  * @param numbersClass - animate numbers class (default: animate-number)
@@ -29,6 +33,22 @@ const initProgressBars = (progressClass = 'animate-progress-bar') => {
         bar.style.transition = `all ${animationDuration}ms`;
         bar.style.width = percentage;
     });
+};
+
+const restoreRemovedElement = () => {
+    const $animateNumber = $tileWrapper.getElementsByClassName('animate-number')[0],
+        $progressBar = $tileWrapper.getElementsByClassName('progress-bar')[0],
+        animateNumber_DataSet = $animateNumber ? $animateNumber.dataset : null,
+        progressBar_DataSet = $progressBar ? $progressBar.dataset : null;
+
+    $popup.addEventListener('click', function () {
+        console.log($tileWrapper);
+        $tileWrapper.classList.remove('hide'); // show tile
+        $popup.classList.add('hide'); // hide popup
+    });
+
+    reloadAnimateNumbers($animateNumber, animateNumber_DataSet);
+    reloadAnimateProgressBar($progressBar, progressBar_DataSet)
 };
 
 /**
@@ -73,33 +93,31 @@ const reloadTile = ($target, path) => {
  */
 const hideTile = ($target, path) => {
     if ($target.matches('.remove')) {
-        let tilesPathIndex = null,
-            DOMElement;
+        window.clearTimeout(popupButtonTimeout); // Clear popupButtonTimeout. Fix issue when closing few tiles in a row and button disappear
 
-        path.forEach((element, index) => {
-            if (element.classList && (element.classList.contains('tiles') || element.classList.contains('widget'))) {
-                tilesPathIndex = index;
-            }
-        });
-        DOMElement = path[tilesPathIndex + 1];
-        // path[tilesPathIndex + 1].remove(); // go up one element and delete tiles with wrapper.
-        // console.log(DOMElement);
-        DOMElement.classList.add('hide'); // go up one element and HIDE tile with wrapper.
+        updateDomElement(path);
+        $tileWrapper.classList.add('hide'); // go up one element and HIDE tile with wrapper.
         $popup.classList.remove('hide'); // show popup to restore hidden tile
-        restoreRemovedElement(DOMElement);
 
+        let tileTitle = $tileWrapper.getElementsByClassName("tiles-title")[0].innerText;
+        $popup.innerText = `Przywróć ${tileTitle}`;
+        popupButtonTimeout = setTimeout(() => {
+            $popup.classList.add('hide')
+        }, 3500);
+
+        restoreRemovedElement()
     }
 };
 
-const restoreRemovedElement = element => {
-    // console.log('restoreRemovedElement', element);
-    $popup.addEventListener('click', function () {
-        // element.classList.remove('hide');
-        // $popup.classList.add('hide');
-        console.log('element na kliku')
+const updateDomElement = (path) => {
+    let tilesPathIndex = null;
 
-        console.log(this);
+    path.forEach((element, index) => {
+        if (element.classList && (element.classList.contains('tiles') || element.classList.contains('widget'))) {
+            tilesPathIndex = index;
+        }
     });
+    $tileWrapper = path[tilesPathIndex + 1];
 };
 
 /**

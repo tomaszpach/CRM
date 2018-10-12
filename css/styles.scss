@@ -20,6 +20,13 @@ $screen-lg: 1200px;
   left: 50%;
   bottom: 0;
   z-index: 999;
-  color: red;
-  background: #fff;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: #1f3853;
+}
+
+* {
+  transition: all 450ms;
 }
