@@ -11,6 +11,22 @@ $screen-lg: 1200px;
   background-image: url('http://webarch.revox.io/3.0/html/webarch/img/icon/portlet-tray.png');
 }
 
-.reload {
+.reload, .remove {
   cursor: pointer;
+}
+
+#removed-popup {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 999;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: #1f3853;
+}
+
+* {
+  transition: all 450ms;
 }
