@@ -442,12 +442,12 @@
         <div class="content ">
             <div class="page-title">
                 <h3>Dashboard </h3>
-                <button class="btn btn-info btn-cons" type="button">Przywróć wszystko</button>
+                <button id="restore-all-tiles" class="btn btn-info btn-cons" type="button">Przywróć wszystko</button>
             </div>
             <div id="container">
                 <!-- Start grid charts -->
                 <div class="row 2col">
-                    <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+                    <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom tile-wrapper">
                         <div class="tiles blue added-margin">
                             <div class="tiles-body">
                                 <div class="controller">
@@ -464,7 +464,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+                    <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom tile-wrapper">
                         <div class="tiles green added-margin">
                             <div class="tiles-body">
                                 <div class="controller">
@@ -481,7 +481,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6 spacing-bottom">
+                    <div class="col-md-3 col-sm-6 spacing-bottom tile-wrapper">
                         <div class="tiles red added-margin">
                             <div class="tiles-body">
                                 <div class="controller">
@@ -498,7 +498,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 tile-wrapper">
                         <div class="tiles purple added-margin">
                             <div class="tiles-body">
                                 <div class="controller">
@@ -519,7 +519,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-8 spacing-bottom">
+                    <div class="col-md-8 spacing-bottom tile-wrapper">
                         <div class="row tiles-container tiles white spacing-bottom">
                             <div class="tile-more-content col-md-4 col-sm-4 no-padding">
                                 <div class="tiles green">
@@ -587,7 +587,7 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
-                        <div class="row tiles-container spacing-bottom tiles grey">
+                        <div class="row tiles-container spacing-bottom tiles grey tile-wrapper">
                             <div class="tiles white col-md-8 col-sm-8 no-padding">
                                 <div class="tiles-body">
                                     <div class="row">
@@ -635,7 +635,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-8 col-sm-8">
+                            <div class="col-md-8 col-sm-8 tile-wrapper">
                                 <div class="tiles white">
                                     <div class="tiles-body">
                                         <div class="controller">
@@ -677,7 +677,7 @@
 
                             <!-- todo check why this part isnt the same height as other elements in same row -->
 
-                            <div class="col-md-4 col-sm-4 no-padding">
+                            <div class="col-md-4 col-sm-4 no-padding tile-wrapper">
                                 <div class="tiles red weather-widget ">
                                     <div class="tiles-body">
                                         <div class="controller">
@@ -709,8 +709,8 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="row spacing-bottom ">
-                            <div class="col-md-12">
+                        <div class="row spacing-bottom">
+                            <div class="col-md-12 tile-wrapper">
                                 <div class="tiles white added-margin">
                                     <div class="tiles-body">
                                         <div class="controller">
@@ -734,7 +734,7 @@
 
                         <!-- todo check this todo part. why can not add new or check existing one. check icon -->
                         <div class="row">
-                            <div class="col-md-12 col-sm-6 spacing-bottom">
+                            <div class="col-md-12 col-sm-6 spacing-bottom tile-wrapper">
                                 <div class="widget tiles">
                                     <div class="widget-title dark">
                                         <div class="pull-left ">
@@ -778,7 +778,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12 white col-sm-6">
+                            <div class="col-md-12 white col-sm-6 tile-wrapper">
                                 <div class="tiles purple added-margin" style="max-height:345px">
                                     <div class="tiles-body">
                                         <div class="controller">
@@ -818,6 +818,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div id="world-map2" style="height:405px"></div>
                 </div>
             </div>
 
