@@ -189,19 +189,46 @@ $(document).ready(function () {
         negBarColor: '#0aa699'
     });
 
-    $('#ram-usage').easyPieChart({
+    const setupEasyPieChart = (DOMElement, config) => {
+        const $element = document.getElementById(DOMElement),
+            $pieTextWrapper = $element.getElementsByClassName('easy-pie-percent')[0],
+            $pieTextSpan = $pieTextWrapper.getElementsByTagName('span'),
+            ramUsageDataset = $element.dataset;
+
+        console.log($pieTextSpan);
+        console.log($pieTextWrapper);
+
+        const { percent, start, end } = ramUsageDataset;
+
+        // Oblicz procenty z poczatkowej i koncowej wartosci
+        const calculatePercent = parseInt(start, 10) / parseInt(end, 10);
+        const fixedPercent = (calculatePercent.toFixed(2)) * 100;
+
+        // Ustaw procenty w spanie
+        const getSpanText = `${start} / ${end}`;
+        $pieTextSpan[0].innerText = fixedPercent;
+        $pieTextSpan[1].innerText = getSpanText;
+
+        jQuery('#' + DOMElement).easyPieChart(config);
+        jQuery('#' + DOMElement).data('easyPieChart').update(fixedPercent);
+    };
+
+    const ramUsageConfig = {
         lineWidth: 9,
         barColor: '#f35958',
         trackColor: '#e5e9ec',
         scaleColor: false
-    });
+    };
 
-    $('#disk-usage').easyPieChart({
+    const diskUsageConfig = {
         lineWidth: 9,
         barColor: '#7dc6ec',
         trackColor: '#e5e9ec',
         scaleColor: false
-    });
+    };
+
+    setupEasyPieChart('ram-usage', ramUsageConfig);
+    setupEasyPieChart('disk-usage', diskUsageConfig);
 
     //Ricksaw Chart for Server Load - Autoupdate
     function loadServerChart() {
@@ -447,13 +474,15 @@ $(document).ready(function () {
         new jvm.Map({
             container: $('#world-map2'),
             map: 'de_merc',
-            markers: plants.map(function(h){ return {name: h.name, latLng: h.coords} }),
+            markers: plants.map(function (h) {
+                return {name: h.name, latLng: h.coords}
+            }),
             labels: {
                 markers: {
-                    render: function(index){
+                    render: function (index) {
                         return plants[index].name;
                     },
-                    offsets: function(index){
+                    offsets: function (index) {
                         var offset = plants[index]['offsets'] || [0, 0];
 
                         return [offset[0] - 7, offset[1] + 3];
@@ -468,11 +497,14 @@ $(document).ready(function () {
                         'activeUntil2018': '/img/icon-np-2.png',
                         'activeUntil2022': '/img/icon-np-1.png'
                     },
-                    values: plants.reduce(function(p, c, i){ p[i] = c.status; return p }, {}),
+                    values: plants.reduce(function (p, c, i) {
+                        p[i] = c.status;
+                        return p
+                    }, {}),
                     legend: {
                         horizontal: true,
                         title: 'Nuclear power station status',
-                        labelRender: function(v){
+                        labelRender: function (v) {
                             return {
                                 closed: 'Closed',
                                 activeUntil2018: 'Scheduled for shut down<br> before 2018',
@@ -485,8 +517,6 @@ $(document).ready(function () {
         });
 
 
-        $('#world-map').vectorMap({
-
-        })
+        $('#world-map').vectorMap({})
     }
 });
