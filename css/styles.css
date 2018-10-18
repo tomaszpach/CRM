@@ -8,16 +8,18 @@
   cursor: pointer; }
 
 #removed-popup {
-  position: fixed;
-  left: 50%;
   bottom: 0;
+  left: 50%;
+  position: fixed;
   z-index: 999; }
 
 .btn-info {
   color: #fff;
   background-color: #1f3853; }
 
-* {
-  transition: all 450ms; }
+.circle-chart {
+  padding-left: 15px; }
+  .circle-chart:first-child {
+    padding-left: 0; }
 
 /*# sourceMappingURL=styles.css.map */
