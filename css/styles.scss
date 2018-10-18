@@ -34,4 +34,16 @@ $screen-lg: 1200px;
   &:first-child {
     padding-left: 0;
   }
+
+  .easy-pie-percent {
+    left: 0;
+    line-height: 1;
+    position: absolute;
+    top: 35%;
+    width: 100%;
+
+    span {
+      display: block;
+    }
+  }
 }

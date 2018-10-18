@@ -21,5 +21,13 @@
   padding-left: 15px; }
   .circle-chart:first-child {
     padding-left: 0; }
+  .circle-chart .easy-pie-percent {
+    left: 0;
+    line-height: 1;
+    position: absolute;
+    top: 35%;
+    width: 100%; }
+    .circle-chart .easy-pie-percent span {
+      display: block; }
 
 /*# sourceMappingURL=styles.css.map */
