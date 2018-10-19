@@ -189,10 +189,6 @@ $(document).ready(function () {
         negBarColor: '#0aa699'
     });
 
-    // todo usun console logi
-    // todo Zastanwo sie nad dokladnoscia procentow (czesc wykresow wymaga dokladnosci do setnych)
-    // todo dodaj mozliwosc opisywania wykresow (tak jak to jest w przykladzie na mailu)
-    // todo moze warto przeniesc ustawienia kolorow do HTML i wyciaganie ich tutaj?
     // todo dwa ostatnie wykresy? co to jest?!
     // todo mozliwosc dodawania opisu wewnatrz wykresu
     const setupEasyPieChart = (DOMElement, config) => {
