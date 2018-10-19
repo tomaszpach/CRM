@@ -226,9 +226,9 @@ $(document).ready(function () {
         scaleColor: false
     };
 
-    setupEasyPieChart('ram-usage', defaultConfig);
-    setupEasyPieChart('disk-usage', defaultConfig);
-    setupEasyPieChart('konwersja', defaultConfig);
+    setupEasyPieChart('aktywne-konta', defaultConfig);
+    setupEasyPieChart('konwersja-ofert', defaultConfig);
+    setupEasyPieChart('konwersja-leadow', defaultConfig);
     setupEasyPieChart('nieskontraktowane', defaultConfig);
     setupEasyPieChart('utracone', defaultConfig);
 
