@@ -194,6 +194,7 @@ $(document).ready(function () {
     // todo dodaj mozliwosc opisywania wykresow (tak jak to jest w przykladzie na mailu)
     // todo moze warto przeniesc ustawienia kolorow do HTML i wyciaganie ich tutaj?
     // todo dwa ostatnie wykresy? co to jest?!
+    // todo mozliwosc dodawania opisu wewnatrz wykresu
     const setupEasyPieChart = (DOMElement, config) => {
         const $element = document.getElementById(DOMElement),
             $pieTextWrapper = $element.getElementsByClassName('easy-pie-percent')[0],
