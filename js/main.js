@@ -198,7 +198,9 @@ $(document).ready(function () {
             dataSet = $element.dataset,
             $DOMElement = jQuery('#' + DOMElement);
 
-        const { start, end, barcolor = 'blue', trackcolor = '#e5e9ec' } = dataSet;
+        const {start, end, barcolor = 'blue', trackcolor = '#e5e9ec', firstRow, secondRow} = dataSet;
+
+        console.log(secondRow);
 
         // Oblicz procenty z poczatkowej i koncowej wartosci
         const calculatePercent = parseInt(start, 10) / parseInt(end, 10),
@@ -206,8 +208,15 @@ $(document).ready(function () {
 
         // Ustaw procenty w spanie
         const getSpanText = `${start} / ${end}`;
-        $pieTextSpan[0].innerText = fixedPercent;
-        $pieTextSpan[1].innerText = getSpanText;
+
+        // Ustaw tekst wewnątrz wykresu.
+        // Domyślnie bierze % z [data-start] i [data-end]
+        // Można również ustawić własne poprzez [data-first-row] i [data-second-row]
+        if (firstRow) {
+            $pieTextSpan[0].classList.add('remove-percent');
+        }
+        firstRow ? $pieTextSpan[0].innerText = firstRow : $pieTextSpan[0].innerText = fixedPercent; // first row in chart
+        secondRow ? $pieTextSpan[1].innerText = secondRow : $pieTextSpan[1].innerText = getSpanText; // second row in chart
 
         config = {...config, barColor: barcolor, trackColor: trackcolor};
 

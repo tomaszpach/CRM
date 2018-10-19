@@ -35,13 +35,17 @@
   .circle-chart:first-child {
     padding-left: 0; }
   .circle-chart .easy-pie-percent {
-    left: 0;
+    left: 5%;
     line-height: 1;
     position: absolute;
     top: 35%;
-    width: 100%; }
+    width: 90%; }
     .circle-chart .easy-pie-percent span {
       display: block; }
+      .circle-chart .easy-pie-percent span.percent {
+        font-size: 22px; }
+        .circle-chart .easy-pie-percent span.percent.remove-percent:after {
+          content: none; }
       .circle-chart .easy-pie-percent span.summary:after {
         content: none; }
 

@@ -55,14 +55,24 @@ $screen-lg: 1200px;
   }
 
   .easy-pie-percent {
-    left: 0;
+    left: 5%;
     line-height: 1;
     position: absolute;
     top: 35%;
-    width: 100%;
+    width: 90%;
 
     span {
       display: block;
+
+      &.percent {
+        font-size: 22px;
+
+        &.remove-percent {
+          &:after {
+            content: none;
+          }
+        }
+      }
 
       &.summary {
         &:after {
