@@ -27,6 +27,15 @@ $screen-lg: 1200px;
   background-color: #1f3853;
 }
 
+// todo remove this on done
+.page-content {
+  margin-left: 0;
+
+  .content {
+    padding-top: 0;
+  }
+}
+
 // Circle charts Easy pie cahrts
 .circle-chart {
   padding-left: 55px;
