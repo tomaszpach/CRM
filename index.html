@@ -820,7 +820,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">placeholder dla wykresów z maila od Marcina</div>
+
                     <div class="col-md-12">
                         <div class="grid simple">
                             <div class="grid-title no-border">
@@ -832,10 +832,13 @@
                                     <a href="javascript:;" class="remove"></a>
                                 </div>
                             </div>
+
+                            <!-- Charts -->
                             <div class="grid-body no-border">
                                 <h4>Easy <span class="semi-bold">Pie Charts</span></h4>
                                 <div class="circle-chart pull-left">
-                                    <div id="ram-usage" class="easy-pie-custom" data-start="163" data-end="232">
+                                    <div class="desc">Aktywne konta CRM</div>
+                                    <div id="ram-usage" class="easy-pie-custom" data-start="163" data-end="232" data-barColor="#ff8e4b">
                                         <span class="easy-pie-percent">
                                             <span class="percent"></span>
                                             <span class="summary"></span>
@@ -844,17 +847,8 @@
                                     </div>
                                 </div>
                                 <div class="circle-chart pull-left">
-                                    <div id="disk-usage" class="easy-pie-custom" data-start="4376" data-end="17752">
-                                        <span class="easy-pie-percent">
-                                            <span class="percent"></span>
-                                            <span class="summary"></span>
-                                        </span>
-                                        <canvas height="137" width="137" style="height: 110px; width: 110px;"></canvas>
-                                    </div>
-                                </div>
-
-                                <div class="circle-chart pull-left">
-                                    <div id="konwersja" class="easy-pie-custom" data-start="17752" data-end="17358">
+                                    <div class="desc">Konwersja ofert na zamówienia</div>
+                                    <div id="disk-usage" class="easy-pie-custom" data-start="4376" data-end="17752" data-barColor="#f43730">
                                         <span class="easy-pie-percent">
                                             <span class="percent"></span>
                                             <span class="summary"></span>
@@ -864,7 +858,8 @@
                                 </div>
 
                                 <div class="circle-chart pull-left">
-                                    <div id="nieskontraktowane" class="easy-pie-custom" data-start="90" data-end="90">
+                                    <div class="desc">Konwersja Leadów na ofertę</div>
+                                    <div id="konwersja" class="easy-pie-custom" data-start="17752" data-end="17358" data-barColor="#5ec65e">
                                         <span class="easy-pie-percent">
                                             <span class="percent"></span>
                                             <span class="summary"></span>
@@ -874,7 +869,19 @@
                                 </div>
 
                                 <div class="circle-chart pull-left">
-                                    <div id="utracone" class="easy-pie-custom" data-start="24" data-end="17385">
+                                    <div class="desc">Nieskontraktowane leady > 24h</div>
+                                    <div id="nieskontraktowane" class="easy-pie-custom" data-start="90" data-end="90" data-barColor="#f43730">
+                                        <span class="easy-pie-percent">
+                                            <span class="percent"></span>
+                                            <span class="summary"></span>
+                                        </span>
+                                        <canvas height="137" width="137" style="height: 110px; width: 110px;"></canvas>
+                                    </div>
+                                </div>
+
+                                <div class="circle-chart pull-left">
+                                    <div class="desc">Utracone Leady (Status=Utracony)</div>
+                                    <div id="utracone" class="easy-pie-custom" data-start="24" data-end="17385" data-barColor="#f43730">
                                         <span class="easy-pie-percent">
                                             <span class="percent"></span>
                                             <span class="summary"></span>

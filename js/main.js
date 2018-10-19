@@ -199,55 +199,38 @@ $(document).ready(function () {
         const $element = document.getElementById(DOMElement),
             $pieTextWrapper = $element.getElementsByClassName('easy-pie-percent')[0],
             $pieTextSpan = $pieTextWrapper.getElementsByTagName('span'),
-            ramUsageDataset = $element.dataset;
+            dataSet = $element.dataset,
+            $DOMElement = jQuery('#' + DOMElement);
 
-        console.log($element.style);
-        console.log($pieTextSpan);
-        console.log($pieTextWrapper);
-
-        const { percent, start, end } = ramUsageDataset;
+        const { start, end, barcolor = 'blue', trackcolor = '#e5e9ec' } = dataSet;
 
         // Oblicz procenty z poczatkowej i koncowej wartosci
-        const calculatePercent = parseInt(start, 10) / parseInt(end, 10);
-        const fixedPercent = (calculatePercent.toFixed(2)) * 100;
+        const calculatePercent = parseInt(start, 10) / parseInt(end, 10),
+            fixedPercent = (calculatePercent.toFixed(3)) * 100;
 
         // Ustaw procenty w spanie
         const getSpanText = `${start} / ${end}`;
         $pieTextSpan[0].innerText = fixedPercent;
         $pieTextSpan[1].innerText = getSpanText;
 
-        const $DOMElement = jQuery('#' + DOMElement);
+        config = {...config, barColor: barcolor, trackColor: trackcolor};
 
         $DOMElement.easyPieChart(config);
         $DOMElement.data('easyPieChart').update(fixedPercent);
     };
 
-    const ramUsageConfig = {
+    const defaultConfig = {
+        lineCap: 'round',
+        rotate: 180,
         lineWidth: 9,
-        barColor: '#ff8e4b',
-        trackColor: '#e5e9ec',
         scaleColor: false
     };
 
-    const diskUsageConfig = {
-        lineWidth: 9,
-        barColor: '#f43730',
-        trackColor: '#e5e9ec',
-        scaleColor: false
-    };
-
-    const konwersjaConfig = {
-        lineWidth: 9,
-        barColor: '#5ec65e',
-        trackColor: '#e5e9ec',
-        scaleColor: false
-    };
-
-    setupEasyPieChart('ram-usage', ramUsageConfig);
-    setupEasyPieChart('disk-usage', diskUsageConfig);
-    setupEasyPieChart('konwersja', konwersjaConfig);
-    setupEasyPieChart('nieskontraktowane', diskUsageConfig);
-    setupEasyPieChart('utracone', diskUsageConfig);
+    setupEasyPieChart('ram-usage', defaultConfig);
+    setupEasyPieChart('disk-usage', defaultConfig);
+    setupEasyPieChart('konwersja', defaultConfig);
+    setupEasyPieChart('nieskontraktowane', defaultConfig);
+    setupEasyPieChart('utracone', defaultConfig);
 
     //Ricksaw Chart for Server Load - Autoupdate
     function loadServerChart() {
