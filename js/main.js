@@ -52,7 +52,6 @@ const restoreRemovedElement = () => {
         progressBar_DataSet = $progressBar ? $progressBar.dataset : null;
 
     $popup.addEventListener('click', function () {
-        console.log($tileWrapper);
         $tileWrapper.classList.remove('hide'); // show tile
         $popup.classList.add('hide'); // hide popup
     });
@@ -199,8 +198,6 @@ $(document).ready(function () {
 
         const {start, end, barcolor = 'blue', trackcolor = '#e5e9ec', firstRow, secondRow} = dataSet;
 
-        console.log(secondRow);
-
         // Oblicz procenty z poczatkowej i koncowej wartosci
         const calculatePercent = parseInt(start, 10) / parseInt(end, 10),
             fixedPercent = (calculatePercent.toFixed(3)) * 100;
@@ -239,125 +236,166 @@ $(document).ready(function () {
 
     // Słupkowy wykres Flot chart
 
-    let d1_1 = [
-        [1325376000000, 120],
-        [1328054400000, 70],
-        [1330560000000, 100],
-        [1333238400000, 60],
-        [1335830400000, 35]
-    ];
+    // let d1_1 = [
+    //     [1325376000000, 120],
+    //     [1328054400000, 70],
+    //     [1330560000000, 100],
+    //     [1333238400000, 60],
+    //     [1335830400000, 35]
+    // ];
+    //
+    // let d1_2 = [
+    //     [1325376000000, 80],
+    //     [1328054400000, 60],
+    //     [1330560000000, 30],
+    //     [1333238400000, 35],
+    //     [1335830400000, 30]
+    // ];
+    //
+    // let d1_3 = [
+    //     [1325376000000, 80],
+    //     [1328054400000, 40],
+    //     [1330560000000, 30],
+    //     [1333238400000, 20],
+    //     [1335830400000, 10]
+    // ];
+    //
+    // let d1_4 = [
+    //     [1325376000000, 15],
+    //     [1328054400000, 10],
+    //     [1330560000000, 15],
+    //     [1333238400000, 20],
+    //     [1335830400000, 15]
+    // ];
+    //
+    // let data1 = [
+    //     {
+    //         label: "Konrad Duszyński",
+    //         data: d1_1,
+    //         bars: {
+    //             show: true,
+    //             barWidth: 12*24*60*60*300,
+    //             fill: true,
+    //             lineWidth:0,
+    //             order: 1,
+    //             fillColor:  "rgba(243, 89, 88, 0.7)"
+    //         },
+    //         color: "rgba(243, 89, 88, 0.7)"
+    //     },
+    //     {
+    //         label: "Product 2",
+    //         data: d1_2,
+    //         bars: {
+    //             show: true,
+    //             barWidth: 12*24*60*60*300,
+    //             fill: true,
+    //             lineWidth: 0,
+    //             order: 2,
+    //             fillColor:  "rgba(251, 176, 94, 0.7)"
+    //         },
+    //         color: "rgba(251, 176, 94, 0.7)"
+    //     },
+    //     {
+    //         label: "Product 3",
+    //         data: d1_3,
+    //         bars: {
+    //             show: true,
+    //             barWidth: 12*24*60*60*300,
+    //             fill: true,
+    //             lineWidth: 0,
+    //             order: 3,
+    //             fillColor:  "rgba(10, 166, 153, 0.7)"
+    //         },
+    //         color: "rgba(10, 166, 153, 0.7)"
+    //     },
+    //     {
+    //         label: "Product 4",
+    //         data: d1_4,
+    //         bars: {
+    //             show: true,
+    //             barWidth: 12*24*60*60*300,
+    //             fill: true,
+    //             lineWidth: 0,
+    //             order: 4,
+    //             fillColor:  "rgba(0, 144, 217, 0.7)"
+    //         },
+    //         color: "rgba(0, 144, 217, 0.7)"
+    //     },
+    //
+    // ];
+    //
+    // $.plot($("#placeholder-bar-chart"), data1, {
+    //     xaxis: {
+    //         min: (new Date(2011, 11, 15)).getTime(),
+    //         max: (new Date(2012, 4, 18)).getTime(),
+    //         mode: "time",
+    //         timeformat: "%b",
+    //         tickSize: [1, "month"],
+    //         monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    //         tickLength: 0, // hide gridlines
+    //         axisLabel: 'Month',
+    //         axisLabelUseCanvas: true,
+    //         axisLabelFontSizePixels: 12,
+    //         axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+    //         axisLabelPadding: 5,
+    //     },
+    //     yaxis: {
+    //         axisLabel: 'Value',
+    //         axisLabelUseCanvas: true,
+    //         axisLabelFontSizePixels: 12,
+    //         axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+    //         axisLabelPadding: 5
+    //     },
+    //     grid: {
+    //         hoverable: true,
+    //         clickable: false,
+    //         borderWidth: 1,
+    //         borderColor:'#f0f0f0',
+    //         labelMargin:8,
+    //     },
+    //     series: {
+    //         shadowSize: 1
+    //     }
+    // });
 
-    let d1_2 = [
-        [1325376000000, 80],
-        [1328054400000, 60],
-        [1330560000000, 30],
-        [1333238400000, 35],
-        [1335830400000, 30]
-    ];
+    // $.plot($("#placeholder-bar-chart"), [ [[0, 0], [1, 1]] ], { yaxis: { max: 1 } });
 
-    let d1_3 = [
-        [1325376000000, 80],
-        [1328054400000, 40],
-        [1330560000000, 30],
-        [1333238400000, 20],
-        [1335830400000, 10]
-    ];
+    let ctx = document.getElementById("myChart");
 
-    let d1_4 = [
-        [1325376000000, 15],
-        [1328054400000, 10],
-        [1330560000000, 15],
-        [1333238400000, 20],
-        [1335830400000, 15]
-    ];
-
-    let data1 = [
-        {
-            label: "Konrad Duszyński",
-            data: d1_1,
-            bars: {
-                show: true,
-                barWidth: 12*24*60*60*300,
-                fill: true,
-                lineWidth:0,
-                order: 1,
-                fillColor:  "rgba(243, 89, 88, 0.7)"
-            },
-            color: "rgba(243, 89, 88, 0.7)"
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 25, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
         },
-        {
-            label: "Product 2",
-            data: d1_2,
-            bars: {
-                show: true,
-                barWidth: 12*24*60*60*300,
-                fill: true,
-                lineWidth: 0,
-                order: 2,
-                fillColor:  "rgba(251, 176, 94, 0.7)"
-            },
-            color: "rgba(251, 176, 94, 0.7)"
-        },
-        {
-            label: "Product 3",
-            data: d1_3,
-            bars: {
-                show: true,
-                barWidth: 12*24*60*60*300,
-                fill: true,
-                lineWidth: 0,
-                order: 3,
-                fillColor:  "rgba(10, 166, 153, 0.7)"
-            },
-            color: "rgba(10, 166, 153, 0.7)"
-        },
-        {
-            label: "Product 4",
-            data: d1_4,
-            bars: {
-                show: true,
-                barWidth: 12*24*60*60*300,
-                fill: true,
-                lineWidth: 0,
-                order: 4,
-                fillColor:  "rgba(0, 144, 217, 0.7)"
-            },
-            color: "rgba(0, 144, 217, 0.7)"
-        },
-
-    ];
-
-    $.plot($("#placeholder-bar-chart"), data1, {
-        xaxis: {
-            min: (new Date(2011, 11, 15)).getTime(),
-            max: (new Date(2012, 4, 18)).getTime(),
-            mode: "time",
-            timeformat: "%b",
-            tickSize: [1, "month"],
-            monthNames: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            tickLength: 0, // hide gridlines
-            axisLabel: 'Month',
-            axisLabelUseCanvas: true,
-            axisLabelFontSizePixels: 12,
-            axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-            axisLabelPadding: 5,
-        },
-        yaxis: {
-            axisLabel: 'Value',
-            axisLabelUseCanvas: true,
-            axisLabelFontSizePixels: 12,
-            axisLabelFontFamily: 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
-            axisLabelPadding: 5
-        },
-        grid: {
-            hoverable: true,
-            clickable: false,
-            borderWidth: 1,
-            borderColor:'#f0f0f0',
-            labelMargin:8,
-        },
-        series: {
-            shadowSize: 1
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
         }
     });
 
