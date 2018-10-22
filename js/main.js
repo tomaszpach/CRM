@@ -237,9 +237,9 @@ $(document).ready(function () {
     setupEasyPieChart('utracone', defaultConfig);
 
 
-    // Słupkowe wykresy
+    // Słupkowy wykres Flot chart
 
-    var d1_1 = [
+    let d1_1 = [
         [1325376000000, 120],
         [1328054400000, 70],
         [1330560000000, 100],
@@ -247,7 +247,7 @@ $(document).ready(function () {
         [1335830400000, 35]
     ];
 
-    var d1_2 = [
+    let d1_2 = [
         [1325376000000, 80],
         [1328054400000, 60],
         [1330560000000, 30],
@@ -255,7 +255,7 @@ $(document).ready(function () {
         [1335830400000, 30]
     ];
 
-    var d1_3 = [
+    let d1_3 = [
         [1325376000000, 80],
         [1328054400000, 40],
         [1330560000000, 30],
@@ -263,7 +263,7 @@ $(document).ready(function () {
         [1335830400000, 10]
     ];
 
-    var d1_4 = [
+    let d1_4 = [
         [1325376000000, 15],
         [1328054400000, 10],
         [1330560000000, 15],
@@ -271,9 +271,9 @@ $(document).ready(function () {
         [1335830400000, 15]
     ];
 
-    var data1 = [
+    let data1 = [
         {
-            label: "Product 1",
+            label: "Konrad Duszyński",
             data: d1_1,
             bars: {
                 show: true,
@@ -360,6 +360,8 @@ $(document).ready(function () {
             shadowSize: 1
         }
     });
+
+
 
     //Ricksaw Chart for Server Load - Autoupdate
     function loadServerChart() {
@@ -488,166 +490,4 @@ $(document).ready(function () {
         icons.play();
     };
     loadAnimatedWeatherIcons();
-
-
-    //Jquery vector map
-    const cityAreaData = [
-        500.70,
-        410.16,
-        210.69,
-        120.17,
-        64.31,
-        150.35,
-        130.22,
-        120.71,
-        100.32
-    ];
-
-    if ($.fn.vectorMap) {
-        $('#world-map').vectorMap({
-            map: 'us_lcc_en',
-            scaleColors: ['#C8EEFF', '#0071A4'],
-            normalizeFunction: 'polynomial',
-            focusOn: {
-                x: 5,
-                y: 1,
-                scale: 1.8
-            },
-            zoomOnScroll: false,
-            zoomMin: 0.85,
-            hoverColor: false,
-            regionStyle: {
-                initial: {
-                    fill: '#a5ded9',
-                    "fill-opacity": 1,
-                    stroke: '#a5ded9',
-                    "stroke-width": 0,
-                    "stroke-opacity": 0
-                },
-                hover: {
-                    "fill-opacity": 0.8
-                },
-                selected: {
-                    fill: 'yellow'
-                },
-                selectedHover: {}
-            },
-            markerStyle: {
-                initial: {
-                    fill: '#f35958',
-                    stroke: '#f35958',
-                    "fill-opacity": 1,
-                    "stroke-width": 6,
-                    "stroke-opacity": 0.5,
-                    r: 3
-                },
-                hover: {
-                    stroke: 'black',
-                    "stroke-width": 5
-                },
-                selected: {
-                    fill: 'blue'
-                },
-                selectedHover: {}
-            },
-            backgroundColor: '#fff',
-            markers: [
-                {latLng: [30.22, -81.88], name: 'Cecil,FL'},
-                {latLng: [25.8, -80.28], name: 'Miami Intl,FL'},
-                {latLng: [32.33, -85.00], name: 'Fort Benning,GA'},
-                {latLng: [34.35, -85.17], name: 'Rome/Russell,GA'},
-                {latLng: [35.90, -82.82], name: 'Hot Springs,NC'},
-                {latLng: [35.85, -77.88], name: 'Rocky Mt,NC'},
-                {latLng: [32.90, -97.03], name: 'Dallas/FW,TX'},
-                {latLng: [39.37, -75.07], name: 'Millville,NJ'},
-                {latLng: [39.37, -60.70], name: 'Goodland,KS'}
-            ],
-            series: {
-                markers: [{
-                    attribute: 'r',
-                    scale: [3, 7],
-                    values: cityAreaData
-                }]
-            },
-        });
-    }
-
-    // if ($.fn.vectorMap) {
-    //     var plants = [
-    //         {name: 'VAK', coords: [50.0091294, 9.0371812], status: 'closed', offsets: [0, 2]},
-    //         {name: 'MZFR', coords: [49.0543102, 8.4825862], status: 'closed', offsets: [0, 2]},
-    //         {name: 'AVR', coords: [50.9030599, 6.4213693], status: 'closed'},
-    //         {name: 'KKR', coords: [53.1472465, 12.9903674], status: 'closed'},
-    //         {name: 'KRB', coords: [48.513264, 10.4020357], status: 'activeUntil2018'},
-    //         {name: 'KWO', coords: [49.364503, 9.076252], status: 'closed'},
-    //         {name: 'KWL', coords: [52.5331853, 7.2505223], status: 'closed', offsets: [0, -2]},
-    //         {name: 'HDR', coords: [50.1051446, 8.9348691], status: 'closed', offsets: [0, -2]},
-    //         {name: 'KKS', coords: [53.6200685, 9.5306289], status: 'closed'},
-    //         {name: 'KKN', coords: [48.6558015, 12.2500848], status: 'closed', offsets: [0, -2]},
-    //         {name: 'KGR', coords: [54.1417497, 13.6583877], status: 'closed'},
-    //         {name: 'KWB', coords: [49.709331, 8.415865], status: 'closed'},
-    //         {name: 'KWW', coords: [51.6396481, 9.3915617], status: 'closed'},
-    //         {name: 'GKN', coords: [49.0401151, 9.1721088], status: 'activeUntil2022'},
-    //         {name: 'KKB', coords: [53.8913533, 9.2005777], status: 'closed', offsets: [0, -5]},
-    //         {name: 'KKI', coords: [48.5544748, 12.3472095], status: 'activeUntil2022', offsets: [0, 2]},
-    //         {name: 'KKU', coords: [53.4293465, 8.4774649], status: 'closed'},
-    //         {name: 'KNK', coords: [49.1473279, 8.3827739], status: 'closed'},
-    //         {name: 'KKP', coords: [49.2513078, 8.4356761], status: 'activeUntil2022', offsets: [0, -2]},
-    //         {name: 'KKG', coords: [49.9841308, 10.1846373], status: 'activeUntil2018'},
-    //         {name: 'KKK', coords: [53.4104656, 10.4091597], status: 'closed'},
-    //         {name: 'KWG', coords: [52.0348748, 9.4097793], status: 'activeUntil2022'},
-    //         {name: 'KBR', coords: [53.850666, 9.3457603], status: 'closed', offsets: [0, 5]},
-    //         {name: 'KMK', coords: [50.408791, 7.4861956], status: 'closed'},
-    //         {name: 'THTR', coords: [51.6786228, 7.9700232], status: 'closed'},
-    //         {name: 'KKE', coords: [52.4216974, 7.3706389], status: 'activeUntil2022', offsets: [0, 2]}
-    //     ];
-    //
-    //     new jvm.Map({
-    //         container: $('#world-map2'),
-    //         map: 'de_merc',
-    //         markers: plants.map(function (h) {
-    //             return {name: h.name, latLng: h.coords}
-    //         }),
-    //         labels: {
-    //             markers: {
-    //                 render: function (index) {
-    //                     return plants[index].name;
-    //                 },
-    //                 offsets: function (index) {
-    //                     var offset = plants[index]['offsets'] || [0, 0];
-    //
-    //                     return [offset[0] - 7, offset[1] + 3];
-    //                 }
-    //             }
-    //         },
-    //         series: {
-    //             markers: [{
-    //                 attribute: 'image',
-    //                 scale: {
-    //                     'closed': '/img/icon-np-3.png',
-    //                     'activeUntil2018': '/img/icon-np-2.png',
-    //                     'activeUntil2022': '/img/icon-np-1.png'
-    //                 },
-    //                 values: plants.reduce(function (p, c, i) {
-    //                     p[i] = c.status;
-    //                     return p
-    //                 }, {}),
-    //                 legend: {
-    //                     horizontal: true,
-    //                     title: 'Nuclear power station status',
-    //                     labelRender: function (v) {
-    //                         return {
-    //                             closed: 'Closed',
-    //                             activeUntil2018: 'Scheduled for shut down<br> before 2018',
-    //                             activeUntil2022: 'Scheduled for shut down<br> before 2022'
-    //                         }[v];
-    //                     }
-    //                 }
-    //             }]
-    //         }
-    //     });
-    //
-    //
-    //     $('#world-map').vectorMap({})
-    // }
 });
