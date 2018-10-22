@@ -370,22 +370,22 @@ $(document).ready(function () {
                 {
                     label: 'Email komunikator',
                     data: [219, 303, 238, 199, 230, 248, 138],
-                    backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-                    borderColor: ['rgba(255,99,132,1)',],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
                     borderWidth: 1
                 },
                 {
                     label: 'Telefon',
                     data: [220, 117, 84, 72, 66, 30, 45],
-                    backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-                    borderColor: ['rgba(54, 162, 235, 1)'],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
                 },
                 {
                     label: '# of Votes',
                     data: [12, 65, 19, 3, 5, 2, 3],
-                    backgroundColor: ['rgba(255, 206, 86, 0.2)',],
-                    borderColor: ['rgba(255, 206, 86, 1)',],
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
                     borderWidth: 1
                 }]
         },
