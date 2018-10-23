@@ -82,3 +82,9 @@ $screen-lg: 1200px;
     }
   }
 }
+
+.mini-chart-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}

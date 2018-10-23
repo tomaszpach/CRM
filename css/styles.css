@@ -49,4 +49,9 @@
       .circle-chart .easy-pie-percent span.summary:after {
         content: none; }
 
+.mini-chart-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end; }
+
 /*# sourceMappingURL=styles.css.map */
