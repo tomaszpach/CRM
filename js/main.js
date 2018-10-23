@@ -360,7 +360,7 @@ $(document).ready(function () {
 
     // $.plot($("#placeholder-bar-chart"), [ [[0, 0], [1, 1]] ], { yaxis: { max: 1 } });
 
-    let ctx = document.getElementById("myChart");
+    let ctx = document.getElementById("stacked-chart");
 
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -382,20 +382,35 @@ $(document).ready(function () {
                     borderWidth: 1
                 },
                 {
-                    label: '# of Votes',
-                    data: [12, 65, 19, 3, 5, 2, 3],
+                    label: 'Spotkanie w biurze',
+                    data: [45, 12, 57, 88, 59, 2, 2],
                     backgroundColor: 'rgba(255, 206, 86, 0.2)',
                     borderColor: 'rgba(255, 206, 86, 1)',
                     borderWidth: 1
-                }]
+                },
+                {
+                    label: 'Wyjazd do klienta',
+                    data: [65, 18, 10, 8, 22, 2, 1],
+                    backgroundColor: 'rgba(90, 86, 255, 0.2)',
+                    borderColor: 'rgba(90, 86, 255, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Montaż',
+                    data: [3, 4, 7, 5, 0, 1, 1],
+                    backgroundColor: 'rgba(230, 86, 255, 0.2)',
+                    borderColor: 'rgba(230, 86, 255, 1)',
+                    borderWidth: 1
+                }
+            ]
         },
         options: {
             scales: {
                 xAxes: [{
-                    stacked: true
+                    stacked: false
                 }],
                 yAxes: [{
-                    stacked: true,
+                    stacked: false,
                     ticks: {
                         beginAtZero: true
                     }
@@ -403,6 +418,97 @@ $(document).ready(function () {
             }
         }
     });
+
+
+
+
+
+
+
+
+    let lineChart = document.getElementById("line-chart");
+
+    var myChart = new Chart(lineChart, {
+        type: 'line',
+        data: {
+            labels: ["Okno 1", "Okno 2", "Okno 3", "Okno 4", "Okno 5", "Okno 6", "Okno 7"],
+            datasets: [
+                {
+                    label: 'NETTO',
+                    data: [219, 303, 238, 199, 230, 248, 138],
+                    backgroundColor: 'transparent',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'NETTO po rabatach',
+                    data: [199, 287, 221, 187, 218, 216, 111],
+                    backgroundColor: 'rgba(255,99,132,0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    stacked: false
+                }],
+                yAxes: [{
+                    stacked: false,
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+
+    let miniBarChart = document.getElementById("mini-chart-balance");
+
+    var myChart = new Chart(miniBarChart, {
+        type: 'bar',
+        data: {
+            labels: ["Okno 1", "Okno 2", "Okno 3", "Okno 4", "Okno 5", "Okno 6", "Okno 7"],
+            datasets: [
+                {
+                    label: 'Balance',
+                    data: [20, 16, 17, 12, 12, 32, 27],
+                    backgroundColor: 'transparent',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1
+                },
+                // {
+                //     label: 'NETTO po rabatach',
+                //     data: [199, 287, 221, 187, 218, 216, 111],
+                //     backgroundColor: 'rgba(255,99,132,0.2)',
+                //     borderColor: 'rgba(255,99,132,1)',
+                //     borderWidth: 1
+                // }
+            ]
+        },
+        options: {
+            scales: {
+                xAxes: [{
+                    stacked: false,
+                    barThickness: 30
+                }],
+                yAxes: [{
+                    stacked: false,
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+
+
+
+
+
 
 
     //Ricksaw Chart for Server Load - Autoupdate
