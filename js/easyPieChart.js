@@ -8,8 +8,11 @@ const setupEasyPieChart = (DOMElement, config) => {
     const {start, end, barcolor = 'blue', trackcolor = '#e5e9ec', firstRow, secondRow} = dataSet;
 
     // Oblicz procenty z poczatkowej i koncowej wartosci
-    const calculatePercent = parseInt(start, 10) / parseInt(end, 10),
-        fixedPercent = (calculatePercent.toFixed(3)) * 100;
+    const calculatePercent = parseInt(start, 10) / parseInt(end, 10);
+    let fixedPercent = (calculatePercent.toFixed(3)) * 100;
+
+    fixedPercent > 100 ? fixedPercent = (fixedPercent - 100).toFixed(1) : fixedPercent;
+    console.log(fixedPercent);
 
     // Ustaw procenty w spanie
     const getSpanText = `${start} / ${end}`;
@@ -36,8 +39,8 @@ const defaultConfig = {
     scaleColor: false
 };
 
-setupEasyPieChart('aktywne-konta', defaultConfig);
-setupEasyPieChart('konwersja-ofert', defaultConfig);
+// setupEasyPieChart('aktywne-konta', defaultConfig);
 setupEasyPieChart('konwersja-leadow', defaultConfig);
+setupEasyPieChart('konwersja-ofert', defaultConfig);
 setupEasyPieChart('nieskontraktowane', defaultConfig);
 setupEasyPieChart('utracone', defaultConfig);

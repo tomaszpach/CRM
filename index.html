@@ -899,21 +899,24 @@
                             <!-- Charts -->
                             <div class="grid-body no-border">
                                 <h4>Easy <span class="semi-bold">Pie Charts</span></h4>
+                                <!-- Ukryte z panelu dla PH -->
+                                <!-- Pierwszy wykres pokazuje u Rafała dane dot. aktywnych kont CRM – tego nie możemy pokazywać PH. Dlatego ten wykres trzeba usunąć z formatki dla Partnera Handlowego. Natomiast wykres ten zrobimy w panelu ADMINA CMS – dla logujących się do niego ludzi z Backoffice itd. (to nowy pomysł). -->
+                                <!--<div class="circle-chart pull-left">-->
+                                    <!--<div class="desc">Aktywne konta CRM</div>-->
+                                    <!--<div id="aktywne-konta" class="easy-pie-custom" data-start="163" data-end="232"-->
+                                         <!--data-barColor="#ff8e4b">-->
+                                        <!--<span class="easy-pie-percent">-->
+                                            <!--<span class="percent"></span>-->
+                                            <!--<span class="summary"></span>-->
+                                        <!--</span>-->
+                                        <!--<canvas height="137" width="137" style="height: 110px; width: 110px;"></canvas>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
                                 <div class="circle-chart pull-left">
-                                    <div class="desc">Aktywne konta CRM</div>
-                                    <div id="aktywne-konta" class="easy-pie-custom" data-start="163" data-end="232"
-                                         data-barColor="#ff8e4b">
-                                        <span class="easy-pie-percent">
-                                            <span class="percent"></span>
-                                            <span class="summary"></span>
-                                        </span>
-                                        <canvas height="137" width="137" style="height: 110px; width: 110px;"></canvas>
-                                    </div>
-                                </div>
-                                <div class="circle-chart pull-left">
-                                    <div class="desc">Konwersja ofert na zamówienia</div>
-                                    <div id="konwersja-ofert" class="easy-pie-custom" data-start="4376" data-end="17752"
-                                         data-barColor="#f43730">
+                                    <div class="desc">Konwersja Leadów na ofertę</div>
+                                    <div id="konwersja-leadow" class="easy-pie-custom" data-start="17752"
+                                         data-end="17358" data-barColor="#5ec65e">
                                         <span class="easy-pie-percent">
                                             <span class="percent"></span>
                                             <span class="summary"></span>
@@ -923,9 +926,9 @@
                                 </div>
 
                                 <div class="circle-chart pull-left">
-                                    <div class="desc">Konwersja Leadów na ofertę</div>
-                                    <div id="konwersja-leadow" class="easy-pie-custom" data-start="17752"
-                                         data-end="17358" data-barColor="#5ec65e">
+                                    <div class="desc">Konwersja ofert na zamówienia</div>
+                                    <div id="konwersja-ofert" class="easy-pie-custom" data-start="4376" data-end="17752"
+                                         data-barColor="#f43730">
                                         <span class="easy-pie-percent">
                                             <span class="percent"></span>
                                             <span class="summary"></span>
@@ -1017,6 +1020,60 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="progress-bar-wrapper tiles-body">
+                                    <ul class="progress-list">
+                                        <li>
+                                            <div class="details-wrapper">
+                                                <div class="name">Foreign Visits</div>
+                                                <div class="description">Our Overseas visits</div>
+                                            </div>
+                                            <div class="details-status pull-right"><span class="animate-number"
+                                                                                         data-value="89"
+                                                                                         data-animation-duration="800">0</span>%
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="progress progress-small no-radius">
+                                                <div class="progress-bar progress-bar-success animate-progress-bar"
+                                                     data-percentage="89%"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="details-wrapper">
+                                                <div class="name">Local Visits</div>
+                                                <div class="description">Our Overseas visits</div>
+                                            </div>
+                                            <div class="details-status pull-right"><span class="animate-number"
+                                                                                         data-value="45"
+                                                                                         data-animation-duration="600">0</span>%
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="progress progress-small no-radius ">
+                                                <div class="progress-bar progress-bar-warning animate-progress-bar"
+                                                     data-percentage="45%"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="details-wrapper">
+                                                <div class="name">Other Visits</div>
+                                                <div class="description">Our Overseas visits</div>
+                                            </div>
+                                            <div class="details-status pull-right"><span class="animate-number"
+                                                                                         data-value="12"
+                                                                                         data-animation-duration="200">0</span>%
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="progress progress-small no-radius">
+                                                <div class="progress-bar progress-bar-danger animate-progress-bar"
+                                                     data-percentage="12%"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
