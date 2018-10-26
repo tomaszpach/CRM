@@ -11,6 +11,7 @@ const setupEasyPieChart = (DOMElement, config) => {
     const calculatePercent = parseInt(start, 10) / parseInt(end, 10);
     let fixedPercent = (calculatePercent.toFixed(3)) * 100;
 
+    // todo tylko jeden wykres ma byc zmniejszony o 100%
     fixedPercent > 100 ? fixedPercent = (fixedPercent - 100).toFixed(1) : fixedPercent;
     console.log(fixedPercent);
 
