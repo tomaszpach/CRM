@@ -1,4 +1,44 @@
+// todo przenies ta funkcje do osobnego pliku?
 
+(() => {
+    console.clear();
+    const $tilesBody = document.getElementsByClassName('tiles-body');
+
+    console.log($tilesBody);
+
+
+    for (let i = 0; i < $tilesBody.length; i++) {
+        const $downUpArrow = $tilesBody[i].getElementsByClassName('set-up-down-icon');
+
+
+
+        // Sprawdzamy czy znalezlismy element pasujacy
+        if ($downUpArrow.length !== 0) {
+            console.log($downUpArrow);
+
+            // Przejdz po wszystkich znalezionych elementach
+            for (let i = 0; i < $downUpArrow.length; i++) {
+                const element = $downUpArrow[i];
+                console.log(element.dataset);
+
+                const { prev, actual } = element.dataset;
+
+                // Jezeli prev > actual to nadaj odpowiednie klasy
+                if (parseInt(prev) > parseInt(actual)) {
+                    element.classList.remove('set-up-down-icon');
+                    element.classList.add('icon-custom-down');
+                    console.warn('ustawiam strzalke w dol dla', element)
+                } else {
+                    element.classList.remove('set-up-down-icon');
+                    element.classList.add('icon-custom-up');
+                    console.warn('ustawiam strzalke w gore dla', element)
+                }
+            }
+        }
+
+
+    }
+})();
 
 $(document).ready(function () {
     initAnimateNumbers();
