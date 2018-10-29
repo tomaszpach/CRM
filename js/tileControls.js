@@ -169,3 +169,97 @@ $(document).ready(function () {
     initAnimateNumbers();
     initProgressBars();
 });
+
+ustawiamyStrzalke = $element => {
+    console.log('warunek $element.length !== 0 - znalazlem strzalke');
+    // console.log($element);
+    // console.log($element[0].dataset);
+
+    // console.log(element.dataset);
+
+    const {prev, actual} = $element.dataset;
+
+    // Jezeli prev > actual to nadaj odpowiednie klasy
+    if (parseInt(prev) > parseInt(actual)) {
+        $element.classList.add('icon-custom-down');
+        $element.classList.remove('set-up-down-icon');
+        // console.warn('ustawiam strzalke w dol dla', element)
+    } else {
+        $element.classList.add('icon-custom-up');
+        $element.classList.remove('set-up-down-icon');
+        // console.warn('ustawiam strzalke w gore dla', element)
+    }
+};
+
+obliczamyProcentowaRoznice = ($element, dataset) => {
+    const { prev, actual } = dataset;
+
+    console.log('prev', prev);
+    console.log('actual', actual);
+
+    let tekstRoznicyProcentowej = '',
+        procentowaRoznica;
+
+    if (parseInt(prev) < parseInt(actual)) {
+        console.log('warunek prev < actual spelniony');
+        procentowaRoznica = `${(((actual - prev) / prev) * 100).toFixed(0)}%`;
+        tekstRoznicyProcentowej = `${procentowaRoznica} higher <span class="blend">than last month</span>`;
+    } else {
+        console.log('!!warunek prev < actual spelniony');
+        procentowaRoznica = `${((actual / prev) * 100).toFixed(0)}%`;
+        tekstRoznicyProcentowej = `${procentowaRoznica} lower <span class="blend">than last month</span>`;
+    }
+
+    $element[0].innerHTML = tekstRoznicyProcentowej;
+
+
+    // console.log($element[0].innerText = tekstRoznicyProcentowej);
+    // console.log(procentowaRoznica);
+};
+
+(() => {
+    console.clear();
+    const $tilesBody = document.getElementsByClassName('tiles-body');
+    // console.log('$tilesBody', $tilesBody);
+
+
+    for (let i = 0; i < $tilesBody.length; i++) {
+        console.log('%c[==============                      =================]', 'color: red');
+
+        const $description = $tilesBody[i].getElementsByClassName('description');
+        console.log('$description', $description);
+        console.log('iteracja: ', i + 1);
+
+
+        // Jezeli znajdziemy klase .description
+        if ($description.length !== 0) {
+            console.log('warunek $description.length !== 0 - znalazlem description');
+            const $downUpArrow = $description[0].getElementsByClassName('set-up-down-icon'),
+                $miniDescription = $description[0].getElementsByClassName('mini-description');
+
+
+
+            // obliczenie procentowej roznicy
+
+
+
+
+
+
+
+            ////
+
+            // Sprawdzamy czy znalezlismy element pasujacy
+            if ($downUpArrow.length !== 0) {
+                console.log($downUpArrow);
+
+                if ($downUpArrow[0].dataset) {
+                    console.log('$downUpArrow[0].dataset');
+                    obliczamyProcentowaRoznice($miniDescription, $downUpArrow[0].dataset);
+                }
+
+                ustawiamyStrzalke($downUpArrow[0]);
+            }
+        }
+    }
+})();
