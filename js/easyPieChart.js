@@ -13,7 +13,6 @@ const setupEasyPieChart = (DOMElement, config) => {
 
     // todo tylko jeden wykres ma byc zmniejszony o 100%
     fixedPercent > 100 ? fixedPercent = (fixedPercent - 100).toFixed(1) : fixedPercent;
-    console.log(fixedPercent);
 
     // Ustaw procenty w spanie
     const getSpanText = `${start} / ${end}`;
