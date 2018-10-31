@@ -21,9 +21,11 @@
     <link href="assets/plugins/jquery-ricksaw-chart/css/rickshaw.css" rel="stylesheet" type="text/css"/>
 
     <link href="assets/css/webarch.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="js/react-weather/static/css/main.5308eabc.chunk.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -421,17 +423,17 @@
 
     <!--</div><div class="scroll-element scroll-x scroll-scrolly_visible"><div class="scroll-element_outer">    <div class="scroll-element_size"></div>    <div class="scroll-element_track"></div>    <div class="scroll-bar" style="width: 89px;"></div></div></div><div class="scroll-element scroll-y scroll-scrolly_visible"><div class="scroll-element_outer">    <div class="scroll-element_size"></div>    <div class="scroll-element_track"></div>    <div class="scroll-bar" style="height: 363px; top: 0px;"></div></div></div></div>-->
     <!--</div>-->
-    <div class="footer-widget">
-        <div class="progress transparent progress-small no-radius no-margin">
-            <div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="79%"
-                 style="width: 79%;"></div>
-        </div>
-        <div class="pull-right">
-            <div class="details-status"><span class="animate-number" data-value="86"
-                                              data-animation-duration="560">0</span>%
-            </div>
-            <a href="lockscreen.html"><i class="material-icons">power_settings_new</i></a></div>
-    </div>
+    <!--<div class="footer-widget">-->
+        <!--<div class="progress transparent progress-small no-radius no-margin">-->
+            <!--<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="79%"-->
+                 <!--style="width: 79%;"></div>-->
+        <!--</div>-->
+        <!--<div class="pull-right">-->
+            <!--<div class="details-status"><span class="animate-number" data-value="86"-->
+                                              <!--data-animation-duration="560">0</span>%-->
+            <!--</div>-->
+            <!--<a href="lockscreen.html"><i class="material-icons">power_settings_new</i></a></div>-->
+    <!--</div>-->
 
     <div class="page-content">
         <div id="portlet-config" class="modal hide">
@@ -1080,9 +1082,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+
+        <div id="weather-app"></div>
 
     </div>
 </div>
@@ -1128,6 +1131,66 @@
 <script src="js/easyPieChart.js"></script>
 <script src="js/charts.js"></script>
 <script src="js/tileControls.js"></script>
+<script>!function (l) {
+    function e(e) {
+        for (var r, t, n = e[0], o = e[1], u = e[2], f = 0, i = []; f < n.length; f++) t = n[f], p[t] && i.push(p[t][0]), p[t] = 0;
+        for (r in o) Object.prototype.hasOwnProperty.call(o, r) && (l[r] = o[r]);
+        for (s && s(e); i.length;) i.shift()();
+        return c.push.apply(c, u || []), a()
+    }
+
+    function a() {
+        for (var e, r = 0; r < c.length; r++) {
+            for (var t = c[r], n = !0, o = 1; o < t.length; o++) {
+                var u = t[o];
+                0 !== p[u] && (n = !1)
+            }
+            n && (c.splice(r--, 1), e = f(f.s = t[0]))
+        }
+        return e
+    }
+
+    var t = {}, p = {2: 0}, c = [];
+
+    function f(e) {
+        if (t[e]) return t[e].exports;
+        var r = t[e] = {i: e, l: !1, exports: {}};
+        return l[e].call(r.exports, r, r.exports, f), r.l = !0, r.exports
+    }
+
+    f.m = l, f.c = t, f.d = function (e, r, t) {
+        f.o(e, r) || Object.defineProperty(e, r, {enumerable: !0, get: t})
+    }, f.r = function (e) {
+        "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {value: "Module"}), Object.defineProperty(e, "__esModule", {value: !0})
+    }, f.t = function (r, e) {
+        if (1 & e && (r = f(r)), 8 & e) return r;
+        if (4 & e && "object" == typeof r && r && r.__esModule) return r;
+        var t = Object.create(null);
+        if (f.r(t), Object.defineProperty(t, "default", {
+            enumerable: !0,
+            value: r
+        }), 2 & e && "string" != typeof r) for (var n in r) f.d(t, n, function (e) {
+            return r[e]
+        }.bind(null, n));
+        return t
+    }, f.n = function (e) {
+        var r = e && e.__esModule ? function () {
+            return e.default
+        } : function () {
+            return e
+        };
+        return f.d(r, "a", r), r
+    }, f.o = function (e, r) {
+        return Object.prototype.hasOwnProperty.call(e, r)
+    }, f.p = "/";
+    var r = window.webpackJsonp = window.webpackJsonp || [], n = r.push.bind(r);
+    r.push = e, r = r.slice();
+    for (var o = 0; o < r.length; o++) e(r[o]);
+    var s = n;
+    a()
+}([])</script>
+<script src="js/react-weather/static/js/1.5993bd44.chunk.js"></script>
+<script src="js/react-weather/static/js/main.7fad5f6d.chunk.js"></script>
 <script src="js/main.js"></script>
 
 </body>
