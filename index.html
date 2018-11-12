@@ -21,7 +21,8 @@
     <link href="assets/plugins/jquery-ricksaw-chart/css/rickshaw.css" rel="stylesheet" type="text/css"/>
 
     <link href="assets/css/webarch.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+          integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
@@ -36,404 +37,457 @@
     <div class="pace-progress-inner"></div>
 </div>
 
-<!--<div class="header navbar navbar-inverse ">-->
+<div class="header navbar navbar-inverse ">
 
-<!--<div class="navbar-inner">-->
-<!--<div class="header-seperation">-->
-<!--<ul class="nav pull-left notifcation-center visible-xs visible-sm">-->
-<!--<li class="dropdown">-->
-<!--<a href="#main-menu" data-webarch="toggle-left-side">-->
-<!--<i class="material-icons">menu</i>-->
-<!--</a>-->
-<!--</li>-->
-<!--</ul>-->
+    <div class="navbar-inner">
+        <div class="header-seperation">
+            <ul class="nav pull-left notifcation-center visible-xs visible-sm">
+                <li class="dropdown">
+                    <a href="#main-menu" data-webarch="toggle-left-side">
+                        <i class="material-icons">menu</i>
+                    </a>
+                </li>
+            </ul>
 
-<!--<a href="index.html">-->
-<!--<img src="assets/img/logo2x.png" class="logo" alt="" data-src="assets/img/logo.png" data-src-retina="assets/img/logo2x.png" width="106" height="21">-->
-<!--</a>-->
+            <a href="index.html">
+                <img src="assets/img/logo2x.png" class="logo" alt="" data-src="assets/img/logo.png"
+                     data-src-retina="assets/img/logo2x.png" width="106" height="21">
+            </a>
 
-<!--<ul class="nav pull-right notifcation-center">-->
-<!--<li class="dropdown hidden-xs hidden-sm">-->
-<!--<a href="index.html" class="dropdown-toggle active" data-toggle="">-->
-<!--<i class="material-icons">home</i>-->
-<!--</a>-->
-<!--</li>-->
-<!--<li class="dropdown hidden-xs hidden-sm">-->
-<!--<a href="email.html" class="dropdown-toggle">-->
-<!--<i class="material-icons">email</i><span class="badge bubble-only"></span>-->
-<!--</a>-->
-<!--</li>-->
-<!--<li class="dropdown visible-xs visible-sm">-->
-<!--<a href="#" data-webarch="toggle-right-side">-->
-<!--<i class="material-icons">chat</i>-->
-<!--</a>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
+            <ul class="nav pull-right notifcation-center">
+                <li class="dropdown hidden-xs hidden-sm">
+                    <a href="index.html" class="dropdown-toggle active" data-toggle="">
+                        <i class="material-icons">home</i>
+                    </a>
+                </li>
+                <li class="dropdown hidden-xs hidden-sm">
+                    <a href="email.html" class="dropdown-toggle">
+                        <i class="material-icons">email</i><span class="badge bubble-only"></span>
+                    </a>
+                </li>
+                <li class="dropdown visible-xs visible-sm">
+                    <a href="#" data-webarch="toggle-right-side">
+                        <i class="material-icons">chat</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-<!--<div class="header-quick-nav">-->
+        <div class="header-quick-nav">
 
-<!--<div class="pull-left">-->
-<!--<ul class="nav quick-section">-->
-<!--<li class="quicklinks">-->
-<!--<a href="#" class="" id="layout-condensed-toggle">-->
-<!--<i class="material-icons">menu</i>-->
-<!--</a>-->
-<!--</li>-->
-<!--</ul>-->
-<!--<ul class="nav quick-section">-->
-<!--<li class="quicklinks  m-r-10">-->
-<!--<a href="#" class="">-->
-<!--<i class="material-icons">refresh</i>-->
-<!--</a>-->
-<!--</li>-->
-<!--<li class="quicklinks">-->
-<!--<a href="#" class="">-->
-<!--<i class="material-icons">apps</i>-->
-<!--</a>-->
-<!--</li>-->
-<!--<li class="quicklinks"> <span class="h-seperate"></span></li>-->
-<!--<li class="quicklinks">-->
-<!--<a href="#" class="" id="my-task-list" data-placement="bottom" data-content="" data-toggle="dropdown" data-original-title="Notifications">-->
-<!--<i class="material-icons">notifications_none</i>-->
-<!--<span class="badge badge-important bubble-only"></span>-->
-<!--</a>-->
-<!--</li>-->
-<!--<li class="m-r-10 input-prepend inside search-form no-boarder">-->
-<!--<span class="add-on"> <i class="material-icons">search</i></span>-->
-<!--<input name="" type="text" class="no-boarder " placeholder="Search Dashboard" style="width:250px;">-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--<div id="notification-list" style="display:none">-->
-<!--<div style="width:300px">-->
-<!--<div class="notification-messages info">-->
-<!--<div class="user-profile">-->
-<!--<img src="assets/img/profiles/d2x.jpg" alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">-->
-<!--</div>-->
-<!--<div class="message-wrapper">-->
-<!--<div class="heading">-->
-<!--David Nester - Commented on your wall-->
-<!--</div>-->
-<!--<div class="description">-->
-<!--Meeting postponed to tomorrow-->
-<!--</div>-->
-<!--<div class="date pull-left">-->
-<!--A min ago-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="clearfix"></div>-->
-<!--</div>-->
-<!--<div class="notification-messages danger">-->
-<!--<div class="iconholder">-->
-<!--<i class="icon-warning-sign"></i>-->
-<!--</div>-->
-<!--<div class="message-wrapper">-->
-<!--<div class="heading">-->
-<!--Server load limited-->
-<!--</div>-->
-<!--<div class="description">-->
-<!--Database server has reached its daily capicity-->
-<!--</div>-->
-<!--<div class="date pull-left">-->
-<!--2 mins ago-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="clearfix"></div>-->
-<!--</div>-->
-<!--<div class="notification-messages success">-->
-<!--<div class="user-profile">-->
-<!--<img src="assets/img/profiles/h2x.jpg" alt="" data-src="assets/img/profiles/h.jpg" data-src-retina="assets/img/profiles/h2x.jpg" width="35" height="35">-->
-<!--</div>-->
-<!--<div class="message-wrapper">-->
-<!--<div class="heading">-->
-<!--You haveve got 150 messages-->
-<!--</div>-->
-<!--<div class="description">-->
-<!--150 newly unread messages in your inbox-->
-<!--</div>-->
-<!--<div class="date pull-left">-->
-<!--An hour ago-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="clearfix"></div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
+            <div class="pull-left">
+                <ul class="nav quick-section">
+                    <li class="quicklinks">
+                        <a href="#" class="" id="layout-condensed-toggle">
+                            <i class="material-icons">menu</i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav quick-section">
+                    <li class="quicklinks  m-r-10">
+                        <a href="#" class="">
+                            <i class="material-icons">refresh</i>
+                        </a>
+                    </li>
+                    <li class="quicklinks">
+                        <a href="#" class="">
+                            <i class="material-icons">apps</i>
+                        </a>
+                    </li>
+                    <li class="quicklinks"><span class="h-seperate"></span></li>
+                    <li class="quicklinks">
+                        <a href="#" class="" id="my-task-list" data-placement="bottom" data-content=""
+                           data-toggle="dropdown" data-original-title="Notifications">
+                            <i class="material-icons">notifications_none</i>
+                            <span class="badge badge-important bubble-only"></span>
+                        </a>
+                    </li>
+                    <li class="m-r-10 input-prepend inside search-form no-boarder">
+                        <span class="add-on"> <i class="material-icons">search</i></span>
+                        <input name="" type="text" class="no-boarder " placeholder="Search Dashboard"
+                               style="width:250px;">
+                    </li>
+                </ul>
+            </div>
+            <div id="notification-list" style="display:none">
+                <div style="width:300px">
+                    <div class="notification-messages info">
+                        <div class="user-profile">
+                            <img src="assets/img/profiles/d2x.jpg" alt="" data-src="assets/img/profiles/d.jpg"
+                                 data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35">
+                        </div>
+                        <div class="message-wrapper">
+                            <div class="heading">
+                                David Nester - Commented on your wall
+                            </div>
+                            <div class="description">
+                                Meeting postponed to tomorrow
+                            </div>
+                            <div class="date pull-left">
+                                A min ago
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="notification-messages danger">
+                        <div class="iconholder">
+                            <i class="icon-warning-sign"></i>
+                        </div>
+                        <div class="message-wrapper">
+                            <div class="heading">
+                                Server load limited
+                            </div>
+                            <div class="description">
+                                Database server has reached its daily capicity
+                            </div>
+                            <div class="date pull-left">
+                                2 mins ago
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="notification-messages success">
+                        <div class="user-profile">
+                            <img src="assets/img/profiles/h2x.jpg" alt="" data-src="assets/img/profiles/h.jpg"
+                                 data-src-retina="assets/img/profiles/h2x.jpg" width="35" height="35">
+                        </div>
+                        <div class="message-wrapper">
+                            <div class="heading">
+                                You haveve got 150 messages
+                            </div>
+                            <div class="description">
+                                150 newly unread messages in your inbox
+                            </div>
+                            <div class="date pull-left">
+                                An hour ago
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
 
 
-<!--<div class="pull-right">-->
-<!--<div class="chat-toggler sm">-->
-<!--<div class="profile-pic">-->
-<!--<img src="assets/img/profiles/avatar_small2x.jpg" alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35">-->
-<!--<div class="availability-bubble online"></div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<ul class="nav quick-section ">-->
-<!--<li class="quicklinks">-->
-<!--<a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">-->
-<!--<i class="material-icons">tune</i>-->
-<!--</a>-->
-<!--<ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">-->
-<!--<li>-->
-<!--<a href="user-profile.html"> My Account</a>-->
-<!--</li>-->
-<!--<li>-->
-<!--<a href="calender.html">My Calendar</a>-->
-<!--</li>-->
-<!--<li>-->
-<!--<a href="email.html"> My Inbox&nbsp;&nbsp;-->
-<!--<span class="badge badge-important animated bounceIn">2</span>-->
-<!--</a>-->
-<!--</li>-->
-<!--<li class="divider"></li>-->
-<!--<li>-->
-<!--<a href="login.html"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Log Out</a>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</li>-->
-<!--<li class="quicklinks"> <span class="h-seperate"></span></li>-->
-<!--<li class="quicklinks">-->
-<!--<a href="#" class="chat-menu-toggle" data-webarch="toggle-right-side"><i class="material-icons">chat</i><span class="badge badge-important hide">1</span>-->
-<!--</a>-->
-<!--<div class="simple-chat-popup chat-menu-toggle hide animated fadeOut">-->
-<!--<div class="simple-chat-popup-arrow"></div>-->
-<!--<div class="simple-chat-popup-inner">-->
-<!--<div style="width:100px">-->
-<!--<div class="semi-bold">David Nester</div>-->
-<!--<div class="message">Hey you there </div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
+            <div class="pull-right">
+                <div class="chat-toggler sm">
+                    <div class="profile-pic">
+                        <img src="assets/img/profiles/avatar_small2x.jpg" alt=""
+                             data-src="assets/img/profiles/avatar_small.jpg"
+                             data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35">
+                        <div class="availability-bubble online"></div>
+                    </div>
+                </div>
+                <ul class="nav quick-section ">
+                    <li class="quicklinks">
+                        <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
+                            <i class="material-icons">tune</i>
+                        </a>
+                        <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+                            <li>
+                                <a href="user-profile.html"> My Account</a>
+                            </li>
+                            <li>
+                                <a href="calender.html">My Calendar</a>
+                            </li>
+                            <li>
+                                <a href="email.html"> My Inbox&nbsp;&nbsp;
+                                    <span class="badge badge-important animated bounceIn">2</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="login.html"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="quicklinks"><span class="h-seperate"></span></li>
+                    <li class="quicklinks">
+                        <a href="#" class="chat-menu-toggle" data-webarch="toggle-right-side"><i class="material-icons">chat</i><span
+                                class="badge badge-important hide">1</span>
+                        </a>
+                        <div class="simple-chat-popup chat-menu-toggle hide animated fadeOut">
+                            <div class="simple-chat-popup-arrow"></div>
+                            <div class="simple-chat-popup-inner">
+                                <div style="width:100px">
+                                    <div class="semi-bold">David Nester</div>
+                                    <div class="message">Hey you there</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
-<!--</div>-->
+        </div>
 
-<!--</div>-->
+    </div>
 
-<!--</div>-->
+</div>
 
 <div id="page-content" class="page-container row">
-    <!--<div class="page-sidebar " id="main-menu">-->
+    <div class="page-sidebar " id="main-menu">
 
-    <!--<div class="scroll-wrapper page-sidebar-wrapper scrollbar-dynamic" style="position: relative;"><div class="page-sidebar-wrapper scrollbar-dynamic scroll-content scroll-scrolly_visible" id="main-menu-wrapper" style="margin-bottom: -14px; margin-right: -14px; height: 645px;">-->
-    <!--<div class="user-info-wrapper sm">-->
-    <!--<div class="profile-wrapper sm">-->
-    <!--<img src="assets/img/profiles/avatar2x.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69">-->
-    <!--<div class="availability-bubble online"></div>-->
-    <!--</div>-->
-    <!--<div class="user-info sm">-->
-    <!--<div class="username">Fred <span class="semi-bold">Smith</span></div>-->
-    <!--<div class="status">Life goes on...</div>-->
-    <!--</div>-->
-    <!--</div>-->
+        <div class="scroll-wrapper page-sidebar-wrapper scrollbar-dynamic" style="position: relative;">
+            <div class="page-sidebar-wrapper scrollbar-dynamic scroll-content scroll-scrolly_visible"
+                 id="main-menu-wrapper" style="margin-bottom: -14px; margin-right: -14px; height: 645px;">
+                <div class="user-info-wrapper sm">
+                    <div class="profile-wrapper sm">
+                        <img src="assets/img/profiles/avatar2x.jpg" alt="" data-src="assets/img/profiles/avatar.jpg"
+                             data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69">
+                        <div class="availability-bubble online"></div>
+                    </div>
+                    <div class="user-info sm">
+                        <div class="username">Fred <span class="semi-bold">Smith</span></div>
+                        <div class="status">Life goes on...</div>
+                    </div>
+                </div>
 
 
-    <!--<p class="menu-title sm">BROWSE <span class="pull-right"><a href="javascript:;"><i class="material-icons">refresh</i></a></span></p>-->
-    <!--<ul>-->
-    <!--<li class="start  open active "> <a href="index.html"><i class="material-icons">home</i> <span class="title">Dashboard</span> <span class="selected"></span> <span class="arrow  open "></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="dashboard_v1.html"> Dashboard v1 </a> </li>-->
-    <!--<li class=""> <a href="index.html "> Dashboard v2 <span class=" label label-info pull-right m-r-30">NEW</span></a></li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="widgets.html"> <i class="material-icons">panorama_horizontal</i> <span class="title">Widgets</span> <span class="label label-important bubble-only pull-right "></span></a>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="email.html"> <i class="material-icons">email</i> <span class="title">Email</span> <span class=" badge badge-disable pull-right ">203</span>-->
-    <!--</a>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <i class="material-icons">invert_colors</i> <span class="title">Themes</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="theme_coporate.html">Coporate </a> </li>-->
-    <!--<li> <a href="theme_simple.html">Simple</a> </li>-->
-    <!--<li> <a href="theme_elegant.html">Elegant</a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <i class="material-icons">airplay</i> <span class="title">Layouts</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="layout_options.html"> Layout Options </a> </li>-->
-    <!--<li> <a href="boxed_layout.html">Boxed Layout </a> </li>-->
-    <!--<li> <a href="boxed_layout_v2.html">Inner Boxed Layout </a> </li>-->
-    <!--<li> <a href="extended_layout.html">Extended Layout</a> </li>-->
-    <!--<li> <a href="RTL.html">RTL Layout</a> </li>-->
-    <!--<li> <a href="horizontal_menu.html">Horizontal Menu</a> </li>-->
-    <!--<li> <a href="horizontal_menu_boxed.html">Horizontal Menu &amp; Boxed</a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <i class="material-icons">flip</i><span class="title"> UI Elements</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="typography.html"> Typography </a> </li>-->
-    <!--<li> <a href="messages_notifications.html"> Messages &amp; Notifications </a> </li>-->
-    <!--<li> <a href="notifications.html"> Notifications </a> </li>-->
-    <!--<li> <a href="icons.html">Icons</a> </li>-->
-    <!--<li class=""> <a href="buttons.html">Buttons</a> </li>-->
-    <!--<li> <a href="tabs_accordian.html"> Tabs &amp; Accordions </a> </li>-->
-    <!--<li> <a href="sliders.html">Sliders</a> </li>-->
-    <!--<li> <a href="group_list.html">Group list </a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <i class="material-icons">view_stream</i> <span class="title">Forms</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="form_elements.html">Form Elements </a> </li>-->
-    <!--<li> <a href="form_validations.html">Form Validations</a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <i class="material-icons">apps</i> <span class="title">Grids</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="grids_simple.html">Simple Grids</a> </li>-->
-    <!--<li> <a href="grids_draggable.html">Draggable Grids </a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <i class="material-icons">playlist_add_check</i> <span class="title">Tables</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="tables.html"> Basic Tables </a> </li>-->
-    <!--<li> <a href="datatables.html"> Data Tables </a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <i class="material-icons">location_on</i> <span class="title">Maps</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="google_map.html"> Google Maps </a> </li>-->
-    <!--<li> <a href="vector_map.html"> Vector Maps </a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="charts.html"> <i class="material-icons">timeline</i> <span class="title">Charts</span> </a>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <i class="material-icons">layers</i> <span class="title">Extra</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="user-profile.html"> User Profile </a> </li>-->
-    <!--<li> <a href="time_line.html"> Time line </a> </li>-->
-    <!--<li> <a href="support_ticket.html"> Support Ticket </a> </li>-->
-    <!--<li> <a href="gallery.html"> Gallery</a> </li>-->
-    <!--<li class=""><a href="calender.html"> Calendar</a> </li>-->
-    <!--<li> <a href="search_results.html"> Search Results </a> </li>-->
-    <!--<li> <a href="invoice.html"> Invoice </a> </li>-->
-    <!--<li> <a href="404.html"> 404 Page </a> </li>-->
-    <!--<li> <a href="500.html"> 500 Page </a> </li>-->
-    <!--<li> <a href="blank_template.html"> Blank Page </a> </li>-->
-    <!--<li> <a href="login.html"> Login </a> </li>-->
-    <!--<li> <a href="login_v2.html">Login v2</a> </li>-->
-    <!--<li> <a href="lockscreen.html"> Lockscreen </a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li class="">-->
-    <!--<a href="javascript:;"> <i class="material-icons">more_horiz</i> <span class="title">Menu Levels</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="javascript:;"> Level 1 </a> </li>-->
-    <!--<li>-->
-    <!--<a href="javascript:;"> <span class="title">Level 2</span> <span class=" arrow"></span> </a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li> <a href="javascript:;"> Sub Menu </a> </li>-->
-    <!--<li> <a href="ujavascript:;"> Sub Menu </a> </li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--<li class="hidden-lg hidden-md hidden-xs" id="more-widgets">-->
-    <!--<a href="javascript:;"> <i class="material-icons"></i></a>-->
-    <!--<ul class="sub-menu">-->
-    <!--<li class="side-bar-widgets">-->
-    <!--<p class="menu-title sm">FOLDER <span class="pull-right"><a href="#" class="create-folder"><i class="material-icons">add</i></a></span></p>-->
-    <!--<ul class="folders">-->
-    <!--<li>-->
-    <!--<a href="#">-->
-    <!--<div class="status-icon green"></div>-->
-    <!--My quick tasks </a>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="#">-->
-    <!--<div class="status-icon red"></div>-->
-    <!--To do list </a>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="#">-->
-    <!--<div class="status-icon blue"></div>-->
-    <!--Projects </a>-->
-    <!--</li>-->
-    <!--<li class="folder-input" style="display:none">-->
-    <!--<input type="text" placeholder="Name of folder" class="no-boarder folder-name" name="" id="folder-name">-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--<p class="menu-title">PROJECTS </p>-->
-    <!--<div class="status-widget">-->
-    <!--<div class="status-widget-wrapper">-->
-    <!--<div class="title">Freelancer<a href="#" class="remove-widget"><i class="material-icons">close</i></a></div>-->
-    <!--<p>Redesign home page</p>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div class="status-widget">-->
-    <!--<div class="status-widget-wrapper">-->
-    <!--<div class="title">envato<a href="#" class="remove-widget"><i class="material-icons">close</i></a></div>-->
-    <!--<p>Statistical report</p>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--<div class="side-bar-widgets">-->
-    <!--<p class="menu-title sm">FOLDER <span class="pull-right"><a href="#" class="create-folder"> <i class="material-icons">add</i></a></span></p>-->
-    <!--<ul class="folders">-->
-    <!--<li>-->
-    <!--<a href="#">-->
-    <!--<div class="status-icon green"></div>-->
-    <!--My quick tasks </a>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="#">-->
-    <!--<div class="status-icon red"></div>-->
-    <!--To do list </a>-->
-    <!--</li>-->
-    <!--<li>-->
-    <!--<a href="#">-->
-    <!--<div class="status-icon blue"></div>-->
-    <!--Projects </a>-->
-    <!--</li>-->
-    <!--<li class="folder-input" style="display:none">-->
-    <!--<input type="text" placeholder="Name of folder" class="no-boarder folder-name" name="">-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--<p class="menu-title">PROJECTS </p>-->
-    <!--<div class="status-widget">-->
-    <!--<div class="status-widget-wrapper">-->
-    <!--<div class="title">Freelancer<a href="#" class="remove-widget"><i class="material-icons">close</i></a></div>-->
-    <!--<p>Redesign home page</p>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div class="status-widget">-->
-    <!--<div class="status-widget-wrapper">-->
-    <!--<div class="title">envato<a href="#" class="remove-widget"><i class="material-icons">close</i></a></div>-->
-    <!--<p>Statistical report</p>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div class="clearfix"></div>-->
+                <p class="menu-title sm">BROWSE <span class="pull-right"><a href="javascript:;"><i
+                        class="material-icons">refresh</i></a></span></p>
+                <ul>
+                    <li class="start  open active "><a href="index.html"><i class="material-icons">home</i> <span
+                            class="title">Dashboard</span> <span class="selected"></span> <span
+                            class="arrow  open "></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="dashboard_v1.html"> Dashboard v1 </a></li>
+                            <li class=""><a href="index.html "> Dashboard v2 <span
+                                    class=" label label-info pull-right m-r-30">NEW</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="widgets.html"> <i class="material-icons">panorama_horizontal</i> <span class="title">Widgets</span>
+                            <span class="label label-important bubble-only pull-right "></span></a>
+                    </li>
+                    <li>
+                        <a href="email.html"> <i class="material-icons">email</i> <span class="title">Email</span> <span
+                                class=" badge badge-disable pull-right ">203</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> <i class="material-icons">invert_colors</i> <span
+                                class="title">Themes</span> <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="theme_coporate.html">Coporate </a></li>
+                            <li><a href="theme_simple.html">Simple</a></li>
+                            <li><a href="theme_elegant.html">Elegant</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> <i class="material-icons">airplay</i> <span class="title">Layouts</span>
+                            <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="layout_options.html"> Layout Options </a></li>
+                            <li><a href="boxed_layout.html">Boxed Layout </a></li>
+                            <li><a href="boxed_layout_v2.html">Inner Boxed Layout </a></li>
+                            <li><a href="extended_layout.html">Extended Layout</a></li>
+                            <li><a href="RTL.html">RTL Layout</a></li>
+                            <li><a href="horizontal_menu.html">Horizontal Menu</a></li>
+                            <li><a href="horizontal_menu_boxed.html">Horizontal Menu &amp; Boxed</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> <i class="material-icons">flip</i><span
+                                class="title"> UI Elements</span> <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="typography.html"> Typography </a></li>
+                            <li><a href="messages_notifications.html"> Messages &amp; Notifications </a></li>
+                            <li><a href="notifications.html"> Notifications </a></li>
+                            <li><a href="icons.html">Icons</a></li>
+                            <li class=""><a href="buttons.html">Buttons</a></li>
+                            <li><a href="tabs_accordian.html"> Tabs &amp; Accordions </a></li>
+                            <li><a href="sliders.html">Sliders</a></li>
+                            <li><a href="group_list.html">Group list </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> <i class="material-icons">view_stream</i> <span
+                                class="title">Forms</span> <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="form_elements.html">Form Elements </a></li>
+                            <li><a href="form_validations.html">Form Validations</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> <i class="material-icons">apps</i> <span class="title">Grids</span>
+                            <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="grids_simple.html">Simple Grids</a></li>
+                            <li><a href="grids_draggable.html">Draggable Grids </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> <i class="material-icons">playlist_add_check</i> <span class="title">Tables</span>
+                            <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="tables.html"> Basic Tables </a></li>
+                            <li><a href="datatables.html"> Data Tables </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> <i class="material-icons">location_on</i> <span
+                                class="title">Maps</span> <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="google_map.html"> Google Maps </a></li>
+                            <li><a href="vector_map.html"> Vector Maps </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="charts.html"> <i class="material-icons">timeline</i> <span class="title">Charts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"> <i class="material-icons">layers</i> <span class="title">Extra</span>
+                            <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="user-profile.html"> User Profile </a></li>
+                            <li><a href="time_line.html"> Time line </a></li>
+                            <li><a href="support_ticket.html"> Support Ticket </a></li>
+                            <li><a href="gallery.html"> Gallery</a></li>
+                            <li class=""><a href="calender.html"> Calendar</a></li>
+                            <li><a href="search_results.html"> Search Results </a></li>
+                            <li><a href="invoice.html"> Invoice </a></li>
+                            <li><a href="404.html"> 404 Page </a></li>
+                            <li><a href="500.html"> 500 Page </a></li>
+                            <li><a href="blank_template.html"> Blank Page </a></li>
+                            <li><a href="login.html"> Login </a></li>
+                            <li><a href="login_v2.html">Login v2</a></li>
+                            <li><a href="lockscreen.html"> Lockscreen </a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;"> <i class="material-icons">more_horiz</i> <span
+                                class="title">Menu Levels</span> <span class=" arrow"></span> </a>
+                        <ul class="sub-menu">
+                            <li><a href="javascript:;"> Level 1 </a></li>
+                            <li>
+                                <a href="javascript:;"> <span class="title">Level 2</span> <span class=" arrow"></span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="javascript:;"> Sub Menu </a></li>
+                                    <li><a href="ujavascript:;"> Sub Menu </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="hidden-lg hidden-md hidden-xs" id="more-widgets">
+                        <a href="javascript:;"> <i class="material-icons"></i></a>
+                        <ul class="sub-menu">
+                            <li class="side-bar-widgets">
+                                <p class="menu-title sm">FOLDER <span class="pull-right"><a href="#"
+                                                                                            class="create-folder"><i
+                                        class="material-icons">add</i></a></span></p>
+                                <ul class="folders">
+                                    <li>
+                                        <a href="#">
+                                            <div class="status-icon green"></div>
+                                            My quick tasks </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="status-icon red"></div>
+                                            To do list </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="status-icon blue"></div>
+                                            Projects </a>
+                                    </li>
+                                    <li class="folder-input" style="display:none">
+                                        <input type="text" placeholder="Name of folder" class="no-boarder folder-name"
+                                               name="" id="folder-name">
+                                    </li>
+                                </ul>
+                                <p class="menu-title">PROJECTS </p>
+                                <div class="status-widget">
+                                    <div class="status-widget-wrapper">
+                                        <div class="title">Freelancer<a href="#" class="remove-widget"><i
+                                                class="material-icons">close</i></a></div>
+                                        <p>Redesign home page</p>
+                                    </div>
+                                </div>
+                                <div class="status-widget">
+                                    <div class="status-widget-wrapper">
+                                        <div class="title">envato<a href="#" class="remove-widget"><i
+                                                class="material-icons">close</i></a></div>
+                                        <p>Statistical report</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="side-bar-widgets">
+                    <p class="menu-title sm">FOLDER <span class="pull-right"><a href="#" class="create-folder"> <i
+                            class="material-icons">add</i></a></span></p>
+                    <ul class="folders">
+                        <li>
+                            <a href="#">
+                                <div class="status-icon green"></div>
+                                My quick tasks </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="status-icon red"></div>
+                                To do list </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="status-icon blue"></div>
+                                Projects </a>
+                        </li>
+                        <li class="folder-input" style="display:none">
+                            <input type="text" placeholder="Name of folder" class="no-boarder folder-name" name="">
+                        </li>
+                    </ul>
+                    <p class="menu-title">PROJECTS </p>
+                    <div class="status-widget">
+                        <div class="status-widget-wrapper">
+                            <div class="title">Freelancer<a href="#" class="remove-widget"><i class="material-icons">close</i></a>
+                            </div>
+                            <p>Redesign home page</p>
+                        </div>
+                    </div>
+                    <div class="status-widget">
+                        <div class="status-widget-wrapper">
+                            <div class="title">envato<a href="#" class="remove-widget"><i
+                                    class="material-icons">close</i></a></div>
+                            <p>Statistical report</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
 
-    <!--</div><div class="scroll-element scroll-x scroll-scrolly_visible"><div class="scroll-element_outer">    <div class="scroll-element_size"></div>    <div class="scroll-element_track"></div>    <div class="scroll-bar" style="width: 89px;"></div></div></div><div class="scroll-element scroll-y scroll-scrolly_visible"><div class="scroll-element_outer">    <div class="scroll-element_size"></div>    <div class="scroll-element_track"></div>    <div class="scroll-bar" style="height: 363px; top: 0px;"></div></div></div></div>-->
-    <!--</div>-->
-    <!--<div class="footer-widget">-->
-        <!--<div class="progress transparent progress-small no-radius no-margin">-->
-            <!--<div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="79%"-->
-                 <!--style="width: 79%;"></div>-->
-        <!--</div>-->
-        <!--<div class="pull-right">-->
-            <!--<div class="details-status"><span class="animate-number" data-value="86"-->
-                                              <!--data-animation-duration="560">0</span>%-->
-            <!--</div>-->
-            <!--<a href="lockscreen.html"><i class="material-icons">power_settings_new</i></a></div>-->
-    <!--</div>-->
+            </div>
+            <div class="scroll-element scroll-x scroll-scrolly_visible">
+                <div class="scroll-element_outer">
+                    <div class="scroll-element_size"></div>
+                    <div class="scroll-element_track"></div>
+                    <div class="scroll-bar" style="width: 89px;"></div>
+                </div>
+            </div>
+            <div class="scroll-element scroll-y scroll-scrolly_visible">
+                <div class="scroll-element_outer">
+                    <div class="scroll-element_size"></div>
+                    <div class="scroll-element_track"></div>
+                    <div class="scroll-bar" style="height: 363px; top: 0px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-widget">
+        <div class="progress transparent progress-small no-radius no-margin">
+            <div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="79%"
+                 style="width: 79%;"></div>
+        </div>
+        <div class="pull-right">
+            <div class="details-status"><span class="animate-number" data-value="86"
+                                              data-animation-duration="560">0</span>%
+            </div>
+            <a href="lockscreen.html"><i class="material-icons">power_settings_new</i></a></div>
+    </div>
+
+    <!-- PAGE CONTENT -->
 
     <div class="page-content">
         <div id="portlet-config" class="modal hide">
@@ -467,7 +521,8 @@
                                     <div class="progress-bar progress-bar-white animate-progress-bar"
                                          data-percentage="26%"></div>
                                 </div>
-                                <div class="description"><i class="set-up-down-icon" data-prev="112" data-actual="62"></i><span
+                                <div class="description"><i class="set-up-down-icon" data-prev="112"
+                                                            data-actual="62"></i><span
                                         class="text-white mini-description "></span>
                                 </div>
                             </div>
@@ -487,7 +542,8 @@
                                     <div class="progress-bar progress-bar-white animate-progress-bar"
                                          data-percentage="79%"></div>
                                 </div>
-                                <div class="description"><i class="set-up-down-icon" data-prev="100" data-actual="50"></i><span
+                                <div class="description"><i class="set-up-down-icon" data-prev="100"
+                                                            data-actual="50"></i><span
                                         class="text-white mini-description "></span>
                                 </div>
                             </div>
@@ -507,7 +563,8 @@
                                     <div class="progress-bar progress-bar-white animate-progress-bar"
                                          data-percentage="45%"></div>
                                 </div>
-                                <div class="description"><i class="set-up-down-icon" data-prev="25" data-actual="100"></i><span
+                                <div class="description"><i class="set-up-down-icon" data-prev="25"
+                                                            data-actual="100"></i><span
                                         class="text-white mini-description "></span>
                                 </div>
                             </div>
@@ -529,7 +586,8 @@
                                              data-percentage="12%" data-animation-duration="3000"></div>
                                     </div>
                                 </div>
-                                <div class="description"><i class="set-up-down-icon" data-prev="192" data-actual="178"></i><span
+                                <div class="description"><i class="set-up-down-icon" data-prev="192"
+                                                            data-actual="178"></i><span
                                         class="text-white mini-description ">&nbsp; 3% higher <span class="blend">than last month</span></span>
                                 </div>
                             </div>
@@ -904,15 +962,15 @@
                                 <!-- Ukryte z panelu dla PH -->
                                 <!-- Pierwszy wykres pokazuje u Rafała dane dot. aktywnych kont CRM – tego nie możemy pokazywać PH. Dlatego ten wykres trzeba usunąć z formatki dla Partnera Handlowego. Natomiast wykres ten zrobimy w panelu ADMINA CMS – dla logujących się do niego ludzi z Backoffice itd. (to nowy pomysł). -->
                                 <!--<div class="circle-chart pull-left">-->
-                                    <!--<div class="desc">Aktywne konta CRM</div>-->
-                                    <!--<div id="aktywne-konta" class="easy-pie-custom" data-start="163" data-end="232"-->
-                                         <!--data-barColor="#ff8e4b">-->
-                                        <!--<span class="easy-pie-percent">-->
-                                            <!--<span class="percent"></span>-->
-                                            <!--<span class="summary"></span>-->
-                                        <!--</span>-->
-                                        <!--<canvas height="137" width="137" style="height: 110px; width: 110px;"></canvas>-->
-                                    <!--</div>-->
+                                <!--<div class="desc">Aktywne konta CRM</div>-->
+                                <!--<div id="aktywne-konta" class="easy-pie-custom" data-start="163" data-end="232"-->
+                                <!--data-barColor="#ff8e4b">-->
+                                <!--<span class="easy-pie-percent">-->
+                                <!--<span class="percent"></span>-->
+                                <!--<span class="summary"></span>-->
+                                <!--</span>-->
+                                <!--<canvas height="137" width="137" style="height: 110px; width: 110px;"></canvas>-->
+                                <!--</div>-->
                                 <!--</div>-->
 
                                 <div class="circle-chart pull-left">
@@ -1014,8 +1072,8 @@
                                         <div class="col-md-12 pull-right">
                                             <div class="mini-chart-wrapper">
                                                 <div class="chart-details-wrapper">
-                                                    <div class="chartname"> My Balance </div>
-                                                    <div class="chart-value"> $17,555 </div>
+                                                    <div class="chartname"> My Balance</div>
+                                                    <div class="chart-value"> $17,555</div>
                                                 </div>
                                                 <div class="mini-chart">
                                                     <div id="mini-chart-balance2"></div>
