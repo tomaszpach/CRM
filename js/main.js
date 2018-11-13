@@ -145,4 +145,89 @@ $(document).ready(function () {
         icons.play();
     };
     loadAnimatedWeatherIcons();
+
+
+    // Map testing
+    // $('#map').vectorMap({map: 'pl_merc'});
+
+    //Jquery vector map
+    // Ta czesc odpowiada za wielkosc kropek
+    const cityAreaData = [
+        0.70,
+        0.16,
+        210.69,
+        120.17,
+        64.31,
+        150.35,
+        130.22,
+        120.71,
+        100.32
+    ];
+    if ($.fn.vectorMap) {
+        $('#pl-map').vectorMap({
+            map: 'pl_merc',
+            scaleColors: ['#C8EEFF', '#0071A4'],
+            normalizeFunction: 'polynomial',
+            focusOn: {
+                x: 5,
+                y: 1,
+                scale: 1.8
+            },
+            zoomOnScroll: false,
+            zoomMin: 0.85,
+            hoverColor: false,
+            regionStyle: {
+                initial: {
+                    fill: '#a5ded9',
+                    "fill-opacity": 1,
+                    stroke: '#a5ded9',
+                    "stroke-width": 0,
+                    "stroke-opacity": 0
+                },
+                hover: {
+                    "fill-opacity": 0.8
+                },
+                selected: {
+                    fill: 'yellow'
+                },
+                selectedHover: {}
+            },
+            markerStyle: {
+                initial: {
+                    fill: '#f35958',
+                    stroke: '#f35958',
+                    "fill-opacity": 1,
+                    "stroke-width": 6,
+                    "stroke-opacity": 0.5,
+                    r: 3
+                },
+                hover: {
+                    stroke: 'black',
+                    "stroke-width": 2
+                },
+                selected: {
+                    fill: 'blue'
+                }
+            },
+            backgroundColor: '#ffffff',
+            markers: [
+                {latLng: [49.63, 20.73], name: 'Nowy Sącz'},
+                {latLng: [50.00, 20.13], name: 'Ochmanów'},
+                {latLng: [50.01, 20.02], name: 'Fort Benning,GA'},
+                {latLng: [34.35, -85.17], name: 'Rome/Russell,GA'},
+                {latLng: [35.90, -82.82], name: 'Hot Springs,NC'},
+                {latLng: [35.85, -77.88], name: 'Rocky Mt,NC'},
+                {latLng: [32.90, -97.03], name: 'Dallas/FW,TX'},
+                {latLng: [39.37, -75.07], name: 'Millville,NJ'},
+                {latLng: [39.37, -60.70], name: 'Goodland,KS'}
+            ],
+            series: {
+                markers: [{
+                    attribute: 'r',
+                    scale: [3, 7],
+                    values: cityAreaData
+                }]
+            },
+        });
+    }
 });
