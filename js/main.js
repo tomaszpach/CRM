@@ -145,98 +145,135 @@ $(document).ready(function () {
     loadSampleChart();
 
 
-    //Weahter Icons
-    const loadAnimatedWeatherIcons = function () {
-        /*** Animated Weather Icon **/
-        const icons = new Skycons({"color": "white"});
-        icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-        icons.set("wind", Skycons.WIND);
-        icons.play();
-    };
-    loadAnimatedWeatherIcons();
+    // //Weahter Icons
+    // const loadAnimatedWeatherIcons = function () {
+    //     /*** Animated Weather Icon **/
+    //     const icons = new Skycons({"color": "white"});
+    //     icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
+    //     icons.set("wind", Skycons.WIND);
+    //     icons.play();
+    // };
+    // loadAnimatedWeatherIcons();
 
 
-    // Map testing
-    // $('#map').vectorMap({map: 'pl_merc'});
+    let arrayWithGeo = [];
+    const cities = ['Krakow, Telimeny 29', 'Barcin', 'Nowy Sacz', 'Gdansk', 'Łódź', 'Wrocław'];
+    const length = cities.length;
 
-    //Jquery vector map
-    // Ta czesc odpowiada za wielkosc kropek
-    const cityAreaData = [
-        0.70,
-        0.16,
-        210.69,
-        120.17,
-        64.31,
-        150.35,
-        130.22,
-        120.71,
-        100.32
-    ];
-    if ($.fn.vectorMap) {
-        $('#pl-map').vectorMap({
-            map: 'pl_merc',
-            scaleColors: ['#C8EEFF', '#0071A4'],
-            normalizeFunction: 'polynomial',
-            focusOn: {
-                x: 5,
-                y: 1,
-                scale: 1.8
-            },
-            zoomOnScroll: false,
-            zoomMin: 0.85,
-            hoverColor: false,
-            regionStyle: {
-                initial: {
-                    fill: '#a5ded9',
-                    "fill-opacity": 1,
-                    stroke: '#a5ded9',
-                    "stroke-width": 0,
-                    "stroke-opacity": 0
-                },
-                hover: {
-                    "fill-opacity": 0.8
-                },
-                selected: {
-                    fill: 'yellow'
-                },
-                selectedHover: {}
-            },
-            markerStyle: {
-                initial: {
-                    fill: '#f35958',
-                    stroke: '#f35958',
-                    "fill-opacity": 1,
-                    "stroke-width": 6,
-                    "stroke-opacity": 0.5,
-                    r: 3
-                },
-                hover: {
-                    stroke: 'black',
-                    "stroke-width": 2
-                },
-                selected: {
-                    fill: 'blue'
-                }
-            },
-            backgroundColor: '#ffffff',
-            markers: [
-                {latLng: [49.63, 20.73], name: 'Nowy Sącz'},
-                {latLng: [50.00, 20.13], name: 'Ochmanów'},
-                {latLng: [50.01, 20.02], name: 'Fort Benning,GA'},
-                {latLng: [34.35, -85.17], name: 'Rome/Russell,GA'},
-                {latLng: [35.90, -82.82], name: 'Hot Springs,NC'},
-                {latLng: [35.85, -77.88], name: 'Rocky Mt,NC'},
-                {latLng: [32.90, -97.03], name: 'Dallas/FW,TX'},
-                {latLng: [39.37, -75.07], name: 'Millville,NJ'},
-                {latLng: [39.37, -60.70], name: 'Goodland,KS'}
-            ],
-            series: {
-                markers: [{
-                    attribute: 'r',
-                    scale: [3, 7],
-                    values: cityAreaData
-                }]
-            },
-        });
+    function fetchGeoLocalization(cities) {
+        for (let i = 0; i < cities.length; i++) {
+
+            fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDWPhBk96NOVK1gKy40av7BOAcwiAycuS4&address=${cities[i]}`)
+                .then(response => response.json())
+                .then(data => updateArrayWithGeo(data));
+        }
     }
+
+    fetchGeoLocalization(cities);
+
+
+    function updateArrayWithGeo(data) {
+        // console.log(data);
+        arrayWithGeo.push(data);
+
+
+        if (length === arrayWithGeo.length) {
+            // console.log('arrayWithGeo', arrayWithGeo);
+            let markersNew = [];
+
+            for (let i = 0; i < arrayWithGeo.length; i++) {
+                let latLng = [],
+                    name = arrayWithGeo[i].results[0].formatted_address;
+                // Wzorzec
+                // {latLng: [49.63, 20.73], name: 'Nowy Sącz'}
+                console.log(arrayWithGeo[i].results[0].formatted_address);
+                console.log(arrayWithGeo[i].results[0].geometry.location.lat);
+                console.log(arrayWithGeo[i].results[0].geometry.location.lng);
+                console.log('__________________________')
+
+                latLng.push(arrayWithGeo[i].results[0].geometry.location.lat);
+                latLng.push(arrayWithGeo[i].results[0].geometry.location.lng);
+                console.log(latLng);
+                markersNew.push({latLng: latLng, name: name});
+                console.log(markersNew);
+            }
+
+            // Map testing
+            // $('#map').vectorMap({map: 'pl_merc'});
+
+            //Jquery vector map
+            // Ta czesc odpowiada za wielkosc kropek
+            const cityAreaData = [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                2
+            ];
+
+            if ($.fn.vectorMap) {
+                $('#pl-map').vectorMap({
+                    map: 'pl_merc',
+                    scaleColors: ['#C8EEFF', '#0071A4'],
+                    normalizeFunction: 'polynomial',
+                    focusOn: {
+                        x: 5,
+                        y: 1,
+                        scale: 1
+                    },
+                    zoomOnScroll: false,
+                    zoomMin: 0.85,
+                    hoverColor: false,
+                    regionStyle: {
+                        initial: {
+                            fill: '#a5ded9',
+                            "fill-opacity": 1,
+                            stroke: '#a5ded9',
+                            "stroke-width": 0,
+                            "stroke-opacity": 0
+                        },
+                        hover: {
+                            "fill-opacity": 0.8
+                        },
+                        selected: {
+                            fill: 'yellow'
+                        },
+                        selectedHover: {}
+                    },
+                    markerStyle: {
+                        initial: {
+                            fill: '#f35958',
+                            stroke: '#f35958',
+                            "fill-opacity": 1,
+                            "stroke-width": 6,
+                            "stroke-opacity": 0.5,
+                            r: 3
+                        },
+                        hover: {
+                            stroke: 'black',
+                            "stroke-width": 2
+                        },
+                        selected: {
+                            fill: 'blue'
+                        }
+                    },
+                    backgroundColor: '#ffffff',
+                    markers: markersNew,
+                    series: {
+                        markers: [{
+                            attribute: 'r',
+                            scale: [3, 7],
+                            values: cityAreaData
+                        }]
+                    },
+                });
+            }
+        }
+    }
+
+
 });
