@@ -186,20 +186,23 @@ $(document).ready(function () {
                 latLng.push(lat);
                 latLng.push(lng);
 
-                markers.push({latLng: latLng, name: name});
+                markers.push({'name': name, latLng: latLng});
             }
 
-            createMapWithMarkers(markers);
+            // markers.push({});
+            console.log(markers);
+
+            createMapWithMarkers(markers, citiesList);
         }
     }
 
     // Create map function
 
-    function createMapWithMarkers(markers) {
+    function createMapWithMarkers(markers, cities) {
         //Jquery vector map
         // Ta czesc odpowiada za wielkosc kropek
         const cityAreaData = [
-            'dupa',
+            0,
             1,
             1,
             1,
@@ -213,14 +216,18 @@ $(document).ready(function () {
         if ($.fn.vectorMap) {
             $('#pl-map').vectorMap({
                 map: 'pl_merc',
+                backgroundColor: 'transparent',
+                zoomOnScroll: false,
+                regionsSelectable: true,
+                regionsSelectableOne: true,
                 scaleColors: ['#C8EEFF', '#0071A4'],
                 normalizeFunction: 'polynomial',
                 focusOn: {
-                    x: 5,
+                    x: 1,
                     y: 1,
-                    scale: 1
+                    scale: 2
                 },
-                zoomOnScroll: false,
+
                 zoomMin: 0.85,
                 hoverColor: false,
                 regionStyle: {
@@ -256,8 +263,26 @@ $(document).ready(function () {
                         fill: 'blue'
                     }
                 },
-                backgroundColor: '#ffffff',
+                markerLabelStyle: {
+                    initial: {
+                        'font-family': 'Verdana',
+                        'font-size': '12',
+                        'font-weight': 'bold',
+                        cursor: 'default',
+                        fill: 'black'
+                    },
+                    hover: {
+                        cursor: 'pointer'
+                    }
+                },
                 markers: markers,
+                labels: {
+                    markers: {
+                        render: function(index) {
+                            return cities[index];
+                        }
+                    }
+                }
 
             });
         }
