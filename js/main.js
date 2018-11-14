@@ -157,121 +157,109 @@ $(document).ready(function () {
 
 
     let arrayWithGeo = [];
-    const cities = ['Krakow, Telimeny 29', 'Barcin', 'Nowy Sacz', 'Gdansk', 'Łódź', 'Wrocław'];
-    const length = cities.length;
+    const citiesList = ['Barcin', 'Bełchatów', 'Będzin', 'Biała Podlaska', 'Białystok', 'Bielsk Podlaski', 'Bielsko-Biała', 'Biłgoraj', 'Bochnia'];
+    const citiesListLength = citiesList.length;
 
-    function fetchGeoLocalization(cities) {
-        for (let i = 0; i < cities.length; i++) {
-
-            fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDWPhBk96NOVK1gKy40av7BOAcwiAycuS4&address=${cities[i]}`)
+    function fetchGeoLocalization(citiesList) {
+        for (let i = 0; i < citiesList.length; i++) {
+            fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDWPhBk96NOVK1gKy40av7BOAcwiAycuS4&address=${citiesList[i]}`)
                 .then(response => response.json())
                 .then(data => updateArrayWithGeo(data));
         }
     }
 
-    fetchGeoLocalization(cities);
+    fetchGeoLocalization(citiesList);
 
 
     function updateArrayWithGeo(data) {
-        // console.log(data);
         arrayWithGeo.push(data);
 
-
-        if (length === arrayWithGeo.length) {
-            // console.log('arrayWithGeo', arrayWithGeo);
-            let markersNew = [];
+        if (citiesListLength === arrayWithGeo.length) {
+            let markers = [];
 
             for (let i = 0; i < arrayWithGeo.length; i++) {
-                let latLng = [],
+                const lat = arrayWithGeo[i].results[0].geometry.location.lat,
+                    lng = arrayWithGeo[i].results[0].geometry.location.lng,
+                    latLng = [],
                     name = arrayWithGeo[i].results[0].formatted_address;
-                // Wzorzec
-                // {latLng: [49.63, 20.73], name: 'Nowy Sącz'}
-                console.log(arrayWithGeo[i].results[0].formatted_address);
-                console.log(arrayWithGeo[i].results[0].geometry.location.lat);
-                console.log(arrayWithGeo[i].results[0].geometry.location.lng);
-                console.log('__________________________')
 
-                latLng.push(arrayWithGeo[i].results[0].geometry.location.lat);
-                latLng.push(arrayWithGeo[i].results[0].geometry.location.lng);
-                console.log(latLng);
-                markersNew.push({latLng: latLng, name: name});
-                console.log(markersNew);
+                latLng.push(lat);
+                latLng.push(lng);
+
+                markers.push({latLng: latLng, name: name});
             }
 
-            // Map testing
-            // $('#map').vectorMap({map: 'pl_merc'});
+            createMapWithMarkers(markers);
+        }
+    }
 
-            //Jquery vector map
-            // Ta czesc odpowiada za wielkosc kropek
-            const cityAreaData = [
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-                2
-            ];
+    // Create map function
 
-            if ($.fn.vectorMap) {
-                $('#pl-map').vectorMap({
-                    map: 'pl_merc',
-                    scaleColors: ['#C8EEFF', '#0071A4'],
-                    normalizeFunction: 'polynomial',
-                    focusOn: {
-                        x: 5,
-                        y: 1,
-                        scale: 1
+    function createMapWithMarkers(markers) {
+        //Jquery vector map
+        // Ta czesc odpowiada za wielkosc kropek
+        const cityAreaData = [
+            'dupa',
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2
+        ];
+
+        if ($.fn.vectorMap) {
+            $('#pl-map').vectorMap({
+                map: 'pl_merc',
+                scaleColors: ['#C8EEFF', '#0071A4'],
+                normalizeFunction: 'polynomial',
+                focusOn: {
+                    x: 5,
+                    y: 1,
+                    scale: 1
+                },
+                zoomOnScroll: false,
+                zoomMin: 0.85,
+                hoverColor: false,
+                regionStyle: {
+                    initial: {
+                        fill: '#a5ded9',
+                        "fill-opacity": 1,
+                        stroke: '#a5ded9',
+                        "stroke-width": 0,
+                        "stroke-opacity": 0
                     },
-                    zoomOnScroll: false,
-                    zoomMin: 0.85,
-                    hoverColor: false,
-                    regionStyle: {
-                        initial: {
-                            fill: '#a5ded9',
-                            "fill-opacity": 1,
-                            stroke: '#a5ded9',
-                            "stroke-width": 0,
-                            "stroke-opacity": 0
-                        },
-                        hover: {
-                            "fill-opacity": 0.8
-                        },
-                        selected: {
-                            fill: 'yellow'
-                        },
-                        selectedHover: {}
+                    hover: {
+                        "fill-opacity": 0.8
                     },
-                    markerStyle: {
-                        initial: {
-                            fill: '#f35958',
-                            stroke: '#f35958',
-                            "fill-opacity": 1,
-                            "stroke-width": 6,
-                            "stroke-opacity": 0.5,
-                            r: 3
-                        },
-                        hover: {
-                            stroke: 'black',
-                            "stroke-width": 2
-                        },
-                        selected: {
-                            fill: 'blue'
-                        }
+                    selected: {
+                        fill: 'yellow'
                     },
-                    backgroundColor: '#ffffff',
-                    markers: markersNew,
-                    series: {
-                        markers: [{
-                            attribute: 'r',
-                            scale: [3, 7],
-                            values: cityAreaData
-                        }]
+                    selectedHover: {}
+                },
+                markerStyle: {
+                    initial: {
+                        fill: '#f35958',
+                        stroke: '#f35958',
+                        "fill-opacity": 1,
+                        "stroke-width": 6,
+                        "stroke-opacity": 0.5,
+                        r: 3
                     },
-                });
-            }
+                    hover: {
+                        stroke: 'black',
+                        "stroke-width": 2
+                    },
+                    selected: {
+                        fill: 'blue'
+                    }
+                },
+                backgroundColor: '#ffffff',
+                markers: markers,
+
+            });
         }
     }
 
