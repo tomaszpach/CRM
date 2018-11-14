@@ -14,7 +14,10 @@ $(document).ready(function () {
         'Katowice', 'Kędzierzyn Koźle', 'Kępno', 'Kęty', 'Kielce', 'Koło', 'Kołobrzeg', 'Konin', 'Końskie',
         'Kostrzyn nad Odrą', 'Koszalin', 'Kościan', 'Kościerzyna', 'Kozienice', 'Koźmin', 'Kraków', 'Krasnystaw',
         'Kraśnik', 'Krosno', 'Krotoszyn', 'Krzeszowice', 'Kwidzyn', 'Legionowo', 'Legnica', 'Leszno', 'Lębork',
-        'Limanowa'];
+        'Limanowa', 'Lipno', 'Lipsko', 'Lubartów', 'Lubiczów', 'Lublin', 'Lubliniec', 'Łask', 'Łęczna', 'Łomża',
+        'Łódź', 'Łuków', 'Maków Mazowiecki', 'Marki', 'Miechów', 'Mielec', 'Mierzyn', 'Mieszkowice', 'Mikołów',
+        'Mińsk Mazowiecki', 'Mława', 'Morąg', 'Myszków', 'Myślenice', 'Nasielsk', 'Niepołomice', 'Nowy Dwór Gdański',
+        'Nowy Dwór Mazowiecki', 'Nowy Sącz', 'Nowy Targ', 'Nysa'];
     const citiesListLength = citiesList.length;
 
     function fetchGeoLocalization(citiesList) {
@@ -65,9 +68,9 @@ $(document).ready(function () {
                 scaleColors: ['#C8EEFF', '#0071A4'],
                 normalizeFunction: 'polynomial',
                 focusOn: {
-                    x: 1,
+                    x: 0.6,
                     y: 1,
-                    scale: 1
+                    scale: 4
                 },
 
                 zoomMin: 0.85,
