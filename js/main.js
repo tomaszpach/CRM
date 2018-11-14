@@ -157,25 +157,25 @@ $(document).ready(function () {
 
 
     let arrayWithGeo = [];
-    const citiesList = ['Barcin', 'Bełchatów', 'Będzin', 'Biała Podlaska', 'Białystok', 'Bielsk Podlaski', 'Bielsko-Biała', 'Biłgoraj', 'Bochnia'];
+    const citiesList = ['Limanowa', 'Korzenna', 'Barcin', 'Bełchatów', 'Będzin', 'Biała Podlaska', 'Białystok', 'Bielsk Podlaski', 'Bielsko-Biała', 'Biłgoraj', 'Bochnia'];
     const citiesListLength = citiesList.length;
 
     function fetchGeoLocalization(citiesList) {
         for (let i = 0; i < citiesList.length; i++) {
             fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyDWPhBk96NOVK1gKy40av7BOAcwiAycuS4&address=${citiesList[i]}`)
                 .then(response => response.json())
-                .then(data => updateArrayWithGeo(data));
+                .then(data => updateArrayWithGeo(data, citiesList));
         }
     }
 
     fetchGeoLocalization(citiesList);
 
 
-    function updateArrayWithGeo(data) {
+    function updateArrayWithGeo(data, citiesList) {
         arrayWithGeo.push(data);
 
         if (citiesListLength === arrayWithGeo.length) {
-            let markers = [];
+            let locationData = [];
 
             for (let i = 0; i < arrayWithGeo.length; i++) {
                 const lat = arrayWithGeo[i].results[0].geometry.location.lat,
@@ -186,33 +186,16 @@ $(document).ready(function () {
                 latLng.push(lat);
                 latLng.push(lng);
 
-                markers.push({'name': name, latLng: latLng});
+                locationData.push({latLng: latLng, name: name, shortName: citiesList[i]});
             }
 
-            // markers.push({});
-            console.log(markers);
-
-            createMapWithMarkers(markers, citiesList);
+            createMapWithMarkers(locationData, citiesList);
         }
     }
 
     // Create map function
 
-    function createMapWithMarkers(markers, cities) {
-        //Jquery vector map
-        // Ta czesc odpowiada za wielkosc kropek
-        const cityAreaData = [
-            0,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            1,
-            2
-        ];
-
+    function createMapWithMarkers(locationData) {
         if ($.fn.vectorMap) {
             $('#pl-map').vectorMap({
                 map: 'pl_merc',
@@ -275,18 +258,15 @@ $(document).ready(function () {
                         cursor: 'pointer'
                     }
                 },
-                markers: markers,
+                markers: locationData,
                 labels: {
                     markers: {
-                        render: function(index) {
-                            return cities[index];
+                        render: function (index) {
+                            return locationData[index].shortName;
                         }
                     }
-                }
-
+                },
             });
         }
     }
-
-
 });
