@@ -27,32 +27,37 @@ $(document).ready(function () {
             random.addData(seriesData);
         }
 
-        const graph = new Rickshaw.Graph({
-            element: document.getElementById("chart"),
-            height: 200,
-            renderer: 'area',
-            series: [
-                {
-                    data: seriesData[0],
-                    color: 'rgba(0,144,217,0.51)',
-                    name: 'DB Server'
-                }, {
-                    data: seriesData[1],
-                    color: '#eceff1',
-                    name: 'Web Server'
-                }
-            ]
-        });
-        new Rickshaw.Graph.HoverDetail({
-            graph: graph
-        });
+        let $chart = document.getElementById("chart");
 
-        setInterval(function () {
-            random.removeData(seriesData);
-            random.addData(seriesData);
-            graph.update();
+        if ($chart) {
+            const graph = new Rickshaw.Graph({
+                element: document.getElementById("chart"),
+                height: 200,
+                renderer: 'area',
+                series: [
+                    {
+                        data: seriesData[0],
+                        color: 'rgba(0,144,217,0.51)',
+                        name: 'DB Server'
+                    }, {
+                        data: seriesData[1],
+                        color: '#eceff1',
+                        name: 'Web Server'
+                    }
+                ]
+            });
+            new Rickshaw.Graph.HoverDetail({
+                graph: graph
+            });
 
-        }, 1000);
+            setInterval(function () {
+                random.removeData(seriesData);
+                random.addData(seriesData);
+                graph.update();
+
+            }, 1000);
+        }
+
     }
 
     loadServerChart();
@@ -66,71 +71,75 @@ $(document).ready(function () {
             random.addData(seriesData);
         }
 
-        const rick = new Rickshaw.Graph({
-            element: document.getElementById("ricksaw"),
-            height: 200,
-            renderer: 'area',
-            series: [
-                {
-                    data: seriesData[0],
-                    color: '#736086',
-                    name: 'Downloads'
-                }, {
-                    data: seriesData[1],
-                    color: '#f8a4a3',
-                    name: 'Uploads'
-                },
-                {
-                    data: seriesData[2],
-                    color: '#eceff1',
-                    name: 'All'
-                }
-            ]
-        });
-        new Rickshaw.Graph.HoverDetail({
-            graph: rick
-        });
+        let $ricksaw = document.getElementById("ricksaw");
 
-        random.addData(seriesData);
-        rick.update();
+        if ($ricksaw !== null) {
+            const rick = new Rickshaw.Graph({
+                element: document.getElementById("ricksaw"),
+                height: 200,
+                renderer: 'area',
+                series: [
+                    {
+                        data: seriesData[0],
+                        color: '#736086',
+                        name: 'Downloads'
+                    }, {
+                        data: seriesData[1],
+                        color: '#f8a4a3',
+                        name: 'Uploads'
+                    },
+                    {
+                        data: seriesData[2],
+                        color: '#eceff1',
+                        name: 'All'
+                    }
+                ]
+            });
+            new Rickshaw.Graph.HoverDetail({
+                graph: rick
+            });
 
-        const ticksTreatment = 'glow';
+            random.addData(seriesData);
+            rick.update();
 
-        const xAxis = new Rickshaw.Graph.Axis.Time({
-            graph: rick,
-            ticksTreatment: ticksTreatment,
-            timeFixture: new Rickshaw.Fixtures.Time.Local()
-        });
+            const ticksTreatment = 'glow';
 
-        xAxis.render();
+            const xAxis = new Rickshaw.Graph.Axis.Time({
+                graph: rick,
+                ticksTreatment: ticksTreatment,
+                timeFixture: new Rickshaw.Fixtures.Time.Local()
+            });
 
-        const yAxis = new Rickshaw.Graph.Axis.Y({
-            graph: rick,
-            tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
-            ticksTreatment: ticksTreatment
-        });
+            xAxis.render();
 
-        const legend = new Rickshaw.Graph.Legend({
-            graph: rick,
-            element: document.getElementById('legend')
-        });
+            const yAxis = new Rickshaw.Graph.Axis.Y({
+                graph: rick,
+                tickFormat: Rickshaw.Fixtures.Number.formatKMBT,
+                ticksTreatment: ticksTreatment
+            });
 
-        yAxis.render();
+            const legend = new Rickshaw.Graph.Legend({
+                graph: rick,
+                element: document.getElementById('legend')
+            });
 
-        new Rickshaw.Graph.Behavior.Series.Toggle({
-            graph: rick,
-            legend: legend
-        });
+            yAxis.render();
 
-        new Rickshaw.Graph.Behavior.Series.Order({
-            graph: rick,
-            legend: legend
-        });
+            new Rickshaw.Graph.Behavior.Series.Toggle({
+                graph: rick,
+                legend: legend
+            });
 
-        new Rickshaw.Graph.Behavior.Series.Highlight({
-            graph: rick,
-            legend: legend
-        });
+            new Rickshaw.Graph.Behavior.Series.Order({
+                graph: rick,
+                legend: legend
+            });
+
+            new Rickshaw.Graph.Behavior.Series.Highlight({
+                graph: rick,
+                legend: legend
+            });
+        }
     }
 
     loadSampleChart();
