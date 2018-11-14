@@ -1,6 +1,20 @@
 $(document).ready(function () {
     let arrayWithGeo = [];
-    const citiesList = ['Limanowa', 'Korzenna', 'Barcin', 'Bełchatów', 'Będzin', 'Biała Podlaska', 'Białystok', 'Bielsk Podlaski', 'Bielsko-Biała', 'Biłgoraj', 'Bochnia'];
+    const citiesList = ['Barcin', 'Bełchatów', 'Będzin',
+        'Biała Podlaska', 'Białystok', 'Bielsk Podlaski', 'Bielsko-Biała', 'Biłgoraj',
+        'Bochnia', 'Brodnica', 'Brzeg', 'Brzesko', 'Brzozów', 'Busko Zdrój', 'Bydgoszcz',
+        'Chełm', 'Chmielnik', 'Chodzień', 'Chojna', 'Chojnice', 'Chojnów', 'Chrzanów',
+        'Ciechanów', 'Cieszyn', 'Czaplinek', 'Czersk', 'Częstochowa', 'Dąbrowa Tarnowska',
+        'Dębica', 'Dzierżoniów', 'Garwolin', 'Gdańsk', 'Gdów', 'Gdynia', 'Giżycko', 'Gliwice',
+        'Głogów', 'Głuchołazy', 'Gniezno', 'Goleniów', 'Gorlice', 'Gorzów Wielkopolski',
+        'Gostynin', 'Gostyń', 'Góra', 'Góra Kalwaria', 'Grodzisk Mazowiecki', 'Grodzisk Wielkopolski',
+        'Grójec', 'Grudziądz', 'Gryfino', 'Gryfów Śląski', 'Gubin', 'Hrubieszów', 'Iława',
+        'Inowrocław', 'Janów Lubelski', 'Jarocin', 'Jasło', 'Jastrzębie-Zdrój', 'Jawor',
+        'Jaworzno', 'Jelenia Góra', 'Jędrzejów', 'Kalisz', 'Kalwaria Zebrzydowska', 'Kamienna Góra',
+        'Katowice', 'Kędzierzyn Koźle', 'Kępno', 'Kęty', 'Kielce', 'Koło', 'Kołobrzeg', 'Konin', 'Końskie',
+        'Kostrzyn nad Odrą', 'Koszalin', 'Kościan', 'Kościerzyna', 'Kozienice', 'Koźmin', 'Kraków', 'Krasnystaw',
+        'Kraśnik', 'Krosno', 'Krotoszyn', 'Krzeszowice', 'Kwidzyn', 'Legionowo', 'Legnica', 'Leszno', 'Lębork',
+        'Limanowa'];
     const citiesListLength = citiesList.length;
 
     function fetchGeoLocalization(citiesList) {
@@ -32,6 +46,8 @@ $(document).ready(function () {
                 locationData.push({latLng: latLng, name: name, shortName: citiesList[i]});
             }
 
+            console.log(locationData);
+
             createMapWithMarkers(locationData, citiesList);
         }
     }
@@ -51,7 +67,7 @@ $(document).ready(function () {
                 focusOn: {
                     x: 1,
                     y: 1,
-                    scale: 2
+                    scale: 1
                 },
 
                 zoomMin: 0.85,
