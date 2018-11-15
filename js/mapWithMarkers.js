@@ -1,3 +1,5 @@
+// todo add some cache. local storage with saved locations just to not ask google api each time
+
 $(document).ready(function () {
     let arrayWithGeo = [];
     const citiesList = ['Barcin', 'Bełchatów', 'Będzin',
