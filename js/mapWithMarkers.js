@@ -92,7 +92,7 @@ $(document).ready(function () {
     }
 
     createMapWithMarkers(locationsData);
-    console.log(locationsData);
+    // console.log(locationsData);
 
     // Create map function
     function createMapWithMarkers(locationData) {
